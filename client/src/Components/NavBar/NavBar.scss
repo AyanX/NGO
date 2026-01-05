@@ -1,0 +1,172 @@
+@import "bulma/css/bulma.min.css";
+
+.navbar {
+  height: 100px;
+  background-color: var(--background-color);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  font-family: "Fira Sans", sans-serif;
+
+  .navbar-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .navbar-brand {
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
+
+  .navbar-burger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: auto;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+  }
+
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 3rem;
+
+    .navbar-center {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .navbar-item {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+
+      &:hover {
+        color: var(--secondary-color);
+      }
+    }
+
+    .navbar-end {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .navbar-donate-btn {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: #ff6b4d;
+        box-shadow: 0 4px 12px rgba(255, 88, 51, 0.3);
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .navbar-container {
+      padding: 0 1.5rem;
+    }
+
+    .navbar-menu {
+      margin-left: 2rem;
+
+      .navbar-center {
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .navbar-brand {
+      width: 100%;
+    }
+    .navbar-burger {
+      display: block;
+    }
+
+    .navbar-menu {
+      position: fixed;
+      top: 100px;
+      left: 0;
+      right: 0;
+      background-color: var(--background-color);
+      flex-direction: column;
+      align-items: stretch;
+      margin-left: 0;
+      padding: 1.5rem 1rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+
+      &.is-active {
+        max-height: 500px;
+        opacity: 1;
+      }
+
+      .navbar-center {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .navbar-item {
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 400;
+        border-radius: 5px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      .navbar-end {
+        margin-left: 0;
+        padding-top: 1rem;
+      }
+
+      .navbar-donate-btn {
+        display: block;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
