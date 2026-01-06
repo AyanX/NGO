@@ -1,22 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-:root{
-  --primary-color: #F9FAFB
-;
-  --secondary-color: #FF5833;
-  --background-color: #000000;
-  --blue-color:#0054A8;
+@import url(
+  'https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+
+
+
+
+
+
+
+:root {
+  --primary-color: #f9fafb;
+  --secondary-color: #ff5833;
+  --background-color: #000000ff;
+  --blue-color: #0054a8;
   --text-color: #333333;
-  --hero-background-color:  #0054A880;
+  --gray-bg: #1e2128b3;
+  --hero-background-color: #0054a880;
 }
 
-
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.App{
-  background-color: var(--background-color);
-  height: 400vh;
+.App {
+  background-color: #000000;
+
+  .homepage-component-wrapper {
+    width: 100%;
+    border: solid 1px red;
+    padding: 70px 150px;
+
+    @media (max-width: 1200px) {
+      padding: 80px 50px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 65px 20px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 45px 10px;
+    }
+  }
 }

@@ -28,9 +28,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 84, 168, 0.585);
-
-
+  background: var(--hero-background-color);
   z-index: 2;
 }
 
@@ -50,7 +48,7 @@
   }
 
   .hero-tag {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     letter-spacing: 2px;
     font-size: 0.8rem;
     opacity: 0.9;
@@ -70,6 +68,7 @@
 
 .hero-buttons {
   display: flex;
+  justify-content: flex-start;
   gap: 1rem;
   margin-top: 2rem;
 
@@ -82,14 +81,14 @@
     transition: all 0.3s ease;
 
     @media (max-width: 480px) {
-      padding:0.7rem 1rem;
-  }
+      padding: 0.7rem 1rem;
+    }
   }
 
   .primary {
     background: var(--secondary-color);
     color: var(--primary-color);
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     &:hover {
       background: #000;
       color: #fff;
@@ -98,15 +97,13 @@
 
   .secondary {
     background: #000;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     color: #fff;
     &:hover {
       background: var(--secondary-color);
       color: var(--primary-color);
     }
   }
-
-  
 }
 
 .nav {
@@ -133,7 +130,6 @@
     top: 90%;
   }
 }
-
 
 .hero-slide {
   position: absolute;

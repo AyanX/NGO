@@ -4,6 +4,10 @@ import water from "../../Assets/water.webp";
 import food from "../../Assets/food.webp";
 import affordable from "../../Assets/affordable.webp";
 import education from "../../Assets/education.webp";
+import Involve from './Involve/Involve';
+import MissionSection from './Mission/MissionSection';
+import Vision from './Vision/Vision';
+import Programs from './Programs/Programs';
 const HomePage = () => {
      const heroData = [
         {
@@ -38,6 +42,10 @@ const HomePage = () => {
   return (
     <div>
       <Hero heroData={heroData} />
+      <Involve />
+      <MissionSection/>
+      <Vision/>
+      <Programs/>
     </div>
   )
 }

@@ -14,9 +14,6 @@ const Hero = ({ heroData }) => {
   const totalSlides = heroData.length;
   const current = heroData[index];
 
-  /* -----------------------------
-     Safe slide navigation
-  ----------------------------- */
   const goToSlide = (direction) => {
     if (isAnimating) return;
 
@@ -33,9 +30,7 @@ const Hero = ({ heroData }) => {
   const nextSlide = () => goToSlide("next");
   const prevSlide = () => goToSlide("prev");
 
-  /* -----------------------------
-     Autoplay (no overlap)
-  ----------------------------- */
+  
   useEffect(() => {
     if (isAnimating) return;
 
@@ -46,9 +41,7 @@ const Hero = ({ heroData }) => {
     return () => clearTimeout(timeoutRef.current);
   }, [index, isAnimating]);
 
-  /* -----------------------------
-     Cleanup on unmount
-  ----------------------------- */
+
   useEffect(() => {
     return () => clearTimeout(timeoutRef.current);
   }, []);
