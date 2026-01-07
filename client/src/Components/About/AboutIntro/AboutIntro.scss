@@ -1,0 +1,133 @@
+.mission-vision {
+  color: var(--primary-color);
+  font-family: "Inter", sans-serif;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  &__image-wrapper {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      position: relative;
+      z-index: 2;
+    }
+
+    .image-accent {
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      width: 60%;
+      height: 60%;
+      background: rgba(165, 93, 53, 0.35);
+      border-radius: 1rem;
+      z-index: 1;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  h3 {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1.6rem;
+  }
+
+  p {
+    color: var(--footer-muted-color);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  .icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+
+    &.mission {
+      background: var(--secondary-color);
+    }
+
+    &.vision {
+      background: var(--bright-blue);
+    }
+  }
+}
+
+
+@media (max-width: 900px) {
+  .mission-vision__container {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-vision__image-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .info-card {
+    gap: 1rem;
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+
+@media (max-width: 500px) {
+  .info-card {
+    &__header {
+      gap: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+    }
+  }
+}

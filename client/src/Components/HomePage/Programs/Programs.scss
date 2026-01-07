@@ -1,34 +1,28 @@
 .programs {
   color: var(--primary-color);
 
-  &__subtitle {
-    color: var(--secondary-color);
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    display: block;
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }
-
-  &__title {
-    text-align: center;
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-  }
-
   &__top {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 3rem;
     align-items: center;
     margin-bottom: 4rem;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      gap: 1rem;
+    }
   }
 
   &__top-image {
     position: relative;
     border-radius: 14px;
     overflow: hidden;
+    height: 350px;
+
+    @media (max-width: 768px) {
+      height: 250px;
+    }
 
     img {
       width: 100%;
@@ -50,9 +44,30 @@
   }
 
   &__top-content {
+    width: 100%;
     h3 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
+    }
+    &-title {
+      height: 50px;
+    }
+    &-description {
+      height: 200px;
+      @media screen and (min-width: 600px) and (max-width: 1024px) {
+        height: 150px !important;
+      }
+
+      @media (max-width: 315px) {
+        height: 180px !important;
+        margin-top: 25px;
+      }
+
+       @media (max-width: 340px) {
+    height: 240px !important;
+  }
+
+
     }
 
     p {
@@ -75,6 +90,14 @@
     padding: 1.4rem;
     transition: transform 0.3s ease;
 
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      padding: 5px;
+    }
+
     .image-wrap {
       overflow: hidden;
       border-radius: 10px;
@@ -94,6 +117,14 @@
 
     h4 {
       margin-bottom: 0.5rem;
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.1rem;
+      }
     }
 
     p {
@@ -101,6 +132,14 @@
       color: #cfd6e1;
       margin-bottom: 1rem;
       line-height: 1.5;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.1rem;
+      }
     }
   }
 }
@@ -157,7 +196,19 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
+  height: 80px;
+
+  
+  @media (max-width: 600px) {
+    margin-top: 2rem;
+  }
+  @media screen and (min-width: 600px) and (max-width: 1024px) {
+    margin-top: 0 !important;
+  }
+
+ 
+
 }
 
 .nav-btn {

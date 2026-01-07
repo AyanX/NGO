@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+
 import "./App.scss";
 import Navbar from "./Components/NavBar/NavBar";
 import HomePage from "./Components/HomePage/HomePage";
@@ -10,13 +10,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
+import About from "./Components/About/About";
 
 function App() {
   const Layout = () => {
     return (
       <>
         <Navbar />
-        <Outlet />
+        <div style={{marginTop:"100px"}}>
+          <Outlet />
+        </div>
         <Footer />
       </>
     );
@@ -27,6 +30,7 @@ function App() {
       <>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
+          <Route path="about" element={<About />} />
         </Route>
       </>
     )

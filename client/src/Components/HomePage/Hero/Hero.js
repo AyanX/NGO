@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./Hero.scss";
@@ -27,7 +27,9 @@ const Hero = ({ heroData }) => {
     );
   };
 
-  const nextSlide = () => goToSlide("next");
+  const nextSlide = useCallback(
+    ()=> goToSlide("next"),[]
+  )
   const prevSlide = () => goToSlide("prev");
 
   
@@ -39,7 +41,7 @@ const Hero = ({ heroData }) => {
     }, AUTO_SLIDE_INTERVAL);
 
     return () => clearTimeout(timeoutRef.current);
-  }, [index, isAnimating]);
+  }, [index, isAnimating,nextSlide]);
 
 
   useEffect(() => {

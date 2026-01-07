@@ -25,8 +25,8 @@ function Navbar() {
   };
 
   const menuItems = [
-    { label: "Home", href: "#home" },
-    { label: "About Us", href: "#about" },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "about" },
     { label: "Programs", href: "#programs" },
     { label: "Impact", href: "#impact" },
     { label: "Contact", href: "#contact" },

@@ -1,9 +1,10 @@
 import React from "react";
 import Wrapper from "../../../Assets/utils/Wrapper";
 import "./Involve.scss";
-import { Link } from "react-router-dom";
+
 import { HandHeart, Users, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
+import { involveCards } from "../../../Assets/utils/utils";
 
 /* Container animation */
 const containerVariants = {
@@ -16,20 +17,34 @@ const containerVariants = {
 };
 
 /* Individual card animation */
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
+
+
+const InvolveData = [
+  {
+    logo:<HandHeart size={28} />,
+    title:"Donate Now",
+    content:"Your contribution directly supports vital programs and emergency aid.",
+    to:"#",
+    link:"MAKE A DONATION"
   },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.45,
-      ease: "easeOut",
-    },
+  {
+    logo:<Users size={28} />,
+    title:"Join Us Now",
+    content:"Become a member of our community and help drive positive change.",
+    to:"#",
+    link:"BECOME A MEMBER",
   },
-};
+  {
+    logo:<Rocket size={28} />,
+    title:"Get Involved",
+    content:"Volunteer your time and skills to make a tangible difference.",
+    to:"#",
+    link:"START VOLUNTEERING",
+  }
+]
+
+
+
 
 const InvolveComponent = () => {
   return (
@@ -41,44 +56,9 @@ const InvolveComponent = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <motion.div className="action-card" variants={cardVariants}>
-          <div className="action-card__icon">
-            <HandHeart size={28} />
-          </div>
-          <h3>Donate Now</h3>
-          <p>
-            Your contribution directly supports vital programs and emergency aid.
-          </p>
-          <Link to="#" className="action-card__link">
-            MAKE A DONATION <span>→</span>
-          </Link>
-        </motion.div>
+        {involveCards(InvolveData)}
 
-        <motion.div className="action-card" variants={cardVariants}>
-          <div className="action-card__icon">
-            <Users size={28} />
-          </div>
-          <h3>Join Us Now</h3>
-          <p>
-            Become a member of our community and help drive positive change.
-          </p>
-          <Link to="#" className="action-card__link">
-            BECOME A MEMBER <span>→</span>
-          </Link>
-        </motion.div>
-
-        <motion.div className="action-card" variants={cardVariants}>
-          <div className="action-card__icon">
-            <Rocket size={28} />
-          </div>
-          <h3>Get Involved</h3>
-          <p>
-            Volunteer your time and skills to make a tangible difference.
-          </p>
-          <Link to="#" className="action-card__link">
-            START VOLUNTEERING <span>→</span>
-          </Link>
-        </motion.div>
+        
       </motion.div>
     </section>
   );
