@@ -27,7 +27,7 @@ function Navbar() {
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "About Us", href: "about" },
-    { label: "Programs", href: "#programs" },
+    { label: "volunteer", href: "volunteer" },
     { label: "Impact", href: "#impact" },
     { label: "Contact", href: "#contact" },
   ];

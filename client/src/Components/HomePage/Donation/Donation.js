@@ -27,7 +27,7 @@ const DonationData = [
     title:"Give Scholarship",
     content:"Give scholarships to less privileged youth and women in higher institutions. Your support can change lives.",
     to:"#",
-    link:"Volunteer with Us"
+    link:"Give SCholarship"
   },
 ]
 

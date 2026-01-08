@@ -11,6 +11,10 @@ import {
 } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import About from "./Components/About/About";
+import Volunteer from "./Components/Volunteer/Volunteer";
+
+
+
 
 function App() {
   const Layout = () => {
@@ -31,6 +35,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<About />} />
+          <Route path="volunteer" element={<Volunteer />} />
         </Route>
       </>
     )

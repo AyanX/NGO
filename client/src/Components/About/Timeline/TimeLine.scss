@@ -1,0 +1,122 @@
+.timeline {
+  position: relative;
+}
+
+.timeline__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--secondary-color);
+  transform: translateX(-50%);
+}
+
+.timeline__items {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.timeline__item {
+  position: relative;
+  width: 50%;
+  display: flex;
+  align-items: center;
+
+  &.left {
+    justify-content: flex-end;
+    align-self: flex-start;
+    padding-right: 3rem;
+  }
+
+  &.right {
+    justify-content: flex-start;
+    align-self: flex-end;
+    padding-left: 3rem;
+  }
+
+  &:nth-child(odd) {
+    .timeline__dot {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: var(--secondary-color);
+      border-radius: 50%;
+      left: 100%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &:nth-child(even) {
+    .timeline__dot {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: var(--secondary-color);
+      border-radius: 50%;
+      right: calc(100% - 14px);
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.timeline__card {
+  background: var(--darker-gray);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 380px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-family: var(--ubuntu);
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+    color: #cbd5e1;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline__line {
+    left: 1.5rem;
+    transform: none;
+  }
+
+  .timeline__item {
+    width: 100%;
+    padding-left: 3rem !important;
+    padding-right: 0 !important;
+    justify-content: flex-start !important;
+    align-self: stretch;
+
+    &.left,
+    &.right {
+      align-self: stretch;
+    }
+
+    &:nth-child(even) {
+      .timeline__dot {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+            background: red;
+            border-radius: 50%;
+            right: calc(100% - 1.5rem - 14px);
+        transform: translateX(-50%);
+      }
+    }
+    &:nth-child(odd) {
+      .timeline__dot {
+        left: 1.5rem;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

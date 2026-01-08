@@ -20,8 +20,9 @@ const cardVariants = {
 
 
 export const involveCards = (data,linkColor,bg="") => 
-  data.map((item, index) => (
-    <motion.div style={{backgroundColor:bg}} className="action-card" variants={cardVariants} key={index}>
+  data.map((item, index) => { 
+      const cardBgColor = item?.bg || bg
+  return  <motion.div style={{backgroundColor:cardBgColor}} className="action-card" variants={cardVariants} key={index}>
       <div className="action-card__icon" style={{backgroundColor:item?.IconBgColor}}>
         {item?.logo}
       </div>
@@ -31,7 +32,7 @@ export const involveCards = (data,linkColor,bg="") =>
         {item.link.toUpperCase()} <span> {item.link && "→"}</span>
       </Link>}
     </motion.div>
-  ));
+  });
 
 export const smallHeader =(title, subtitle)=>{
   return (
