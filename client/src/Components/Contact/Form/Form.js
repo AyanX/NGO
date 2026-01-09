@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './Form.scss';
+import './Formere.scss';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
