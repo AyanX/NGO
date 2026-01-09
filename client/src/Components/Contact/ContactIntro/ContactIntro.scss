@@ -1,0 +1,161 @@
+:root {
+  --primary: #0b5cff;
+  --orange: #ff6a00;
+  --green: #009688;
+  --dark: #0a0a0a;
+  --light: #ffffff;
+  --muted: rgba(255, 255, 255, 0.75);
+}
+
+.contact {
+  position: relative;
+  min-height: 100vh;
+  background: url("/your-bg-image.jpg") center/cover no-repeat;
+  color: var(--light);
+  padding: 4rem 6%;
+  display: flex;
+  align-items: center;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.4)
+    );
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    width: 100%;
+  }
+
+  &__badge {
+    display: inline-block;
+    background: rgba(255, 165, 0, 0.15);
+    color: var(--orange);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+
+    span {
+      background: linear-gradient(
+        90deg,
+        var(--orange),
+        #00e5ff
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  p {
+    margin: 1.5rem 0;
+    max-width: 520px;
+    color: var(--muted);
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.85rem 1.6rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+
+    &.primary {
+      background: var(--orange);
+      color: var(--light);
+    }
+
+    &.outline {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: var(--light);
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}
+
+/* INFO CARDS */
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  border-radius: 14px;
+  position: relative;
+
+  .icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+  }
+
+  .info {
+    flex: 1;
+
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    p {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    span {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+  }
+
+  .arrow {
+    opacity: 0.7;
+  }
+
+  &.blue {
+    background: linear-gradient(135deg, #0b5cff, #0a3ea5);
+  }
+
+  &.orange {
+    background: linear-gradient(135deg, #ff6a00, #d84f00);
+  }
+
+  &.green {
+    background: linear-gradient(135deg, #009688, #00695c);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact__content {
+    grid-template-columns: 1fr;
+  }
+}
