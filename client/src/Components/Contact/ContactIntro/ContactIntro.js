@@ -2,7 +2,6 @@ import React from "react";
 import "./ContactIntro.scss";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
-
 const barVariants = {
   hidden: { opacity: 0, y: 10 },
   visible: (i) => ({
@@ -15,6 +14,33 @@ const barVariants = {
     },
   }),
 };
+
+
+
+const contactIntroData = [
+            {
+              icon: <MapPin size={28}/>,
+              title: "Visit Our Office",
+              text: "123 Hope Street, Nairobi",
+              sub: "Mon–Fri: 9AM – 5PM",
+              className: "blue",
+            },
+            {
+              icon: <Phone size={28} />,
+              title: "Call Anytime",
+              text: "+254 700 123 456",
+              sub: "We respond within 24 hours",
+              className: "orange",
+            },
+            {
+              icon: <Mail size={28}/>,
+              title: "Email Us",
+              text: "info@urbantrickles.org",
+              sub: "Quick response guaranteed",
+              className: "green",
+            },
+          ]
+
 
 const ContactIntro = () => {
   return (
@@ -45,38 +71,16 @@ const ContactIntro = () => {
 
         {/* RIGHT */}
         <div className="contact__right">
-          {[
-            {
-              icon: <MapPin />,
-              title: "Visit Our Office",
-              text: "123 Hope Street, Nairobi",
-              sub: "Mon–Fri: 9AM – 5PM",
-              className: "blue",
-            },
-            {
-              icon: <Phone />,
-              title: "Call Anytime",
-              text: "+254 700 123 456",
-              sub: "We respond within 24 hours",
-              className: "orange",
-            },
-            {
-              icon: <Mail />,
-              title: "Email Us",
-              text: "info@urbantrickles.org",
-              sub: "Quick response guaranteed",
-              className: "green",
-            },
-          ].map((item, i) => (
+          {contactIntroData.map((item, i) => (
             <motion.div
               key={i}
-              className={`info-card ${item.className}`}
+              className={`info-card-contact ${item.className}`}
               variants={barVariants}
               initial="hidden"
               animate="visible"
               custom={i}
             >
-              <div className="icon">{item.icon}</div>
+              <div className="info-icon">{item.icon}</div>
 
               <div className="info">
                 <h3>{item.title}</h3>
@@ -92,5 +96,7 @@ const ContactIntro = () => {
     </section>
   );
 };
+
+
 
 export default ContactIntro;

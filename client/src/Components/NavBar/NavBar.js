@@ -29,7 +29,7 @@ function Navbar() {
     { label: "About Us", href: "about" },
     { label: "volunteer", href: "volunteer" },
     { label: "Impact", href: "#impact" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (

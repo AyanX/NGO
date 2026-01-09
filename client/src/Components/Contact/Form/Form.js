@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import axios from 'axios';
-import './Formere.scss';
-
+import { useState } from "react";
+import axios from "axios";
+import "./Form.scss";
+import { smallHeader } from "../../../Assets/utils/utils";
 function ContactForm() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
   const [status, setStatus] = useState({
-    type: '',
-    message: ''
+    type: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,65 +22,64 @@ function ContactForm() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === 'message' && value.length > 500) {
+    if (name === "message" && value.length > 500) {
       return;
     }
 
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
 
     if (status.message) {
-      setStatus({ type: '', message: '' });
+      setStatus({ type: "", message: "" });
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setStatus({ type: '', message: '' });
+    setStatus({ type: "", message: "" });
 
-    const dataToSend = {};
-    Object.keys(formData).forEach(key => {
-      if (formData[key].trim() !== '') {
-        dataToSend[key] = formData[key].trim();
-      }
-    });
+    const isFormValid = Object.values(formData).every(
+      (value) => value.trim() !== ""
+    );
 
-    if (Object.keys(dataToSend).length === 0) {
+    if (!isFormValid) {
       setStatus({
-        type: 'error',
-        message: 'Please fill in at least one field before submitting.'
+        type: "error",
+        message: "Please fill in all fields before submitting the form.",
       });
       setIsSubmitting(false);
       return;
     }
 
     try {
-      const response = await axios.post('http://localhost:5000', dataToSend, {
+      const response = await axios.post("http://localhost:5000", formData, {
         headers: {
-          'Content-Type': 'application/json'
-        }
+          "Content-Type": "application/json",
+        },
       });
 
       setStatus({
-        type: 'success',
-        message: 'Message sent successfully! We will get back to you soon.'
+        type: "success",
+        message: "Message sent successfully! We will get back to you soon.",
       });
 
       setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
       });
     } catch (error) {
       setStatus({
-        type: 'error',
-        message: error.response?.data?.message || 'Failed to send message. Please try again later.'
+        type: "error",
+        message:
+          error.response?.data?.message ||
+          "Failed to send message. Please try again later.",
       });
     } finally {
       setIsSubmitting(false);
@@ -88,113 +87,116 @@ function ContactForm() {
   };
 
   return (
-    <div className="contact-form-container">
-      <div className="contact-form-wrapper">
-        <h1 className="contact-form-title">Send Us a Message</h1>
-        <p className="contact-form-subtitle">
-          Fill out the form below and our team will get back to you within 24 hours.
-        </p>
-
-        <form onSubmit={handleSubmit} className="contact-form">
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                placeholder="John"
-                className="form-input"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                placeholder="Doe"
-                className="form-input"
-              />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="john@example.com"
-              className="form-input"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="+254 700 123 456"
-              className="form-input"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="subject">Subject</label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              placeholder="Enter subject"
-              className="form-input"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Tell us how we can help you..."
-              className="form-textarea"
-              rows="5"
-            />
-            <span className="character-count">
-              {formData.message.length}/500 characters
-            </span>
-          </div>
-
-          {status.message && (
-            <div className={`status-message ${status.type}`}>
-              {status.message}
-            </div>
-          )}
-
-          <button
-            type="submit"
-            className="submit-button"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
-        </form>
+    <>
+      
+      <div className="form-header">
+        {smallHeader("Get In touch", "Contact Us")}
       </div>
-    </div>
+      <div className="contact-form-container">
+      
+        <div className="contact-form-wrapper">
+        
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  placeholder="John"
+                  className="form-input"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  placeholder="Doe"
+                  className="form-input"
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="john@example.com"
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="+254 700 123 456"
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="Enter subject"
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Tell us how we can help you..."
+                className="form-textarea"
+                rows="5"
+              />
+              <span className="character-count">
+                {formData.message.length}/500 characters
+              </span>
+            </div>
+
+            {status.message && (
+              <div className={`status-message ${status.type}`}>
+                {status.message}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="submit-button"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
   );
 }
 

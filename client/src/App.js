@@ -12,7 +12,7 @@ import {
 import Footer from "./Components/Footer/Footer";
 import About from "./Components/About/About";
 import Volunteer from "./Components/Volunteer/Volunteer";
-
+import Contact from "./Components/Contact/Contact";
 
 
 
@@ -36,6 +36,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<About />} />
           <Route path="volunteer" element={<Volunteer />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
       </>
     )
