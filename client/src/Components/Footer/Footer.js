@@ -14,11 +14,11 @@ import Wrapper from "../../Assets/utils/Wrapper";
 
 const FooterSection = () => {
   return (
-    <footer className="footer">
-      <div className="footer__container">
+    <footer className="footer-section">
+      <div className="footer-section__container">
         {/* Brand */}
-        <div className="footer__brand">
-          <div className="footer__logo">
+        <div className="footer-section__brand">
+          <div className="footer-section__logo">
             <img src={logo} alt="Uncle Tusitme Logo" />
           </div>
 
@@ -28,12 +28,12 @@ const FooterSection = () => {
 
         {/* Quick Links */}
         <div>
-          <p className="footer__description">
+          <p className="footer-section__description">
             Dedicated to empowering communities through sustainable development,
             education, and health initiatives across East Africa.
           </p>
 
-          <div className="footer__socials">
+          <div className="footer-section__socials">
             <Link to="#" aria-label="Facebook">
               <Facebook size={18} />
             </Link>
@@ -47,22 +47,22 @@ const FooterSection = () => {
         </div>
 
         {/* Contact */}
-        <div className="footer__contact">
+        <div className="footer-section__contact">
           <h4>Contact Us</h4>
 
-          <div className="footer__contact-item">
+          <div className="footer-section__contact-item">
             <MapPin size={18} />
             <span>
               Palm Drive street, Runda Plot 208, Nairobi, Kenya
             </span>
           </div>
 
-          <div className="footer__contact-item">
+          <div className="footer-section__contact-item">
             <Phone size={18} />
             <span>+254 712 345 678</span>
           </div>
 
-          <div className="footer__contact-item">
+          <div className="footer-section__contact-item">
             <Mail size={18} />
             <span>info@uncletusitme.org</span>
           </div>

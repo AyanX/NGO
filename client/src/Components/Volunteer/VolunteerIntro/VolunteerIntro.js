@@ -1,10 +1,10 @@
-import "./VolunteerIntro.scss"
-import Wrapper from "../../../Assets/utils/Wrapper"
+import "./VolunteerIntro.scss";
+import Wrapper from "../../../Assets/utils/Wrapper";
 import { motion } from "framer-motion";
-import education from "../../../Assets/education.webp"
 
 
-export default function VolunteerHero() {
+
+export default function VolunteerHero({title, description, buttonText,bg}) {
   return (
     <section className="volunteer-hero">
       <motion.div
@@ -14,22 +14,19 @@ export default function VolunteerHero() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h1>BECOME A VOLUNTEER</h1>
+        <h1>{title}</h1>
 
         <p>
-          Are you passionate about making a difference? Join our team of
-          dedicated volunteers and help us change lives across Africa.
+          {description}
         </p>
 
-        <button className="volunteer-btn">
-          BECOME A VOLUNTEER
-        </button>
+        <button className="volunteer-btn">{buttonText}</button>
       </motion.div>
 
       <div
         className="volunteer-hero__bg"
-        style={{ backgroundImage: `url(${education})` }}
+        style={{ backgroundImage: `url(${bg})` }}
       />
     </section>
   );
-};
+}

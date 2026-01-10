@@ -1,20 +1,16 @@
-
-
-.footer {
-    background-color: transparent !important;
+.footer-section {
+  background-color: transparent !important;
   font-family: "Inter", sans-serif;
   color: var(--footer-text-color);
-  padding: 4rem 1.5rem 3rem;
+  border: 1px solid red;
 
   &__container {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(250px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3rem;
+    border: 1px solid red;
   }
 
   h4 {
@@ -44,7 +40,6 @@
     align-items: center;
     margin-bottom: 1.2rem;
   }
-
 
   &__description {
     font-size: 0.95rem;
