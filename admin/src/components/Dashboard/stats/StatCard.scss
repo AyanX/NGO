@@ -1,0 +1,37 @@
+.stat-card {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 200px;
+  height: 150px;
+
+  h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .stat-icon-value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  &.blue { background: var(--blue); }
+  &.green { background: var(--green); }
+  &.orange { background: var(--orange); }
+  &.purple { background: var(--purple); }
+}

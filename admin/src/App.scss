@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+
+
+:root {
+  --bg-main: #111827;
+  --bg-card: #1F2937 ;
+  --border-color: #111827;
+
+  --blue: #2563eb;
+  --green: #16a34a;
+  --orange: #ea580c;
+  --purple: #9333ea;
+
+  --text-primary: #ffffff;
+  --text-muted: #94a3b8;
+
+  --button: #f97316;
+  --button-disabled: #9a3412;
+
+
+    --text-color:#D1D5DB;
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-main);
+  font-family: "Inter", sans-serif;
+  color: var(--text-primary);
+}
+
+h1, h2, h3 {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.App {
+  margin: 0 auto;
+  width: 82%;
+  padding: 10px;
+  min-height: 100vh;
+  border:1px solid red;
+
+
+  @media (max-width: 1200px) {
+    width: 88%;
+  }
+  @media (max-width: 768px) {
+    width: 95%;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+
+  .section-heading{
+    padding: 20px 0;
+    h2{
+      font-size: 30px;
+      margin: 0.5rem 0;
+      font-family: "Inter", sans-serif;
+    }
+    p{
+      font-family: "Ubuntu", sans-serif;
+      font-size: 16px;
+      color: #9CA3AF;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
