@@ -1,0 +1,140 @@
+.application-list {
+  width: 100%;
+  max-width: 450px;
+  background-color: #1e2337;
+  border-right: 1px solid #2a2f45;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    border-right: none;
+  }
+
+  .list-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #2a2f45;
+    background-color: #252a3f;
+
+    h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .stats {
+      font-size: 0.875rem;
+      color: #8b92b0;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .application-items {
+    overflow-y: scroll;
+    height: calc(100vh - 200px);
+    padding: 0.5rem;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #1e2337;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #2a2f45;
+      border-radius: 4px;
+
+      &:hover {
+        background: #353b55;
+      }
+    }
+  }
+
+  .application-item {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #252a3f;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+
+    &:hover {
+      background-color: #2a2f45;
+      transform: translateX(4px);
+    }
+
+    &.selected {
+      border-color: #ff6b35;
+      background-color: #2a2f45;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+
+      h3 {
+        margin: 0;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #ffffff;
+      }
+
+      .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: lowercase;
+        white-space: nowrap;
+
+        &.pending {
+          background-color: rgba(212, 160, 23, 0.2);
+          color: #d4a017;
+        }
+
+        &.approved {
+          background-color: rgba(16, 185, 129, 0.2);
+          color: #10b981;
+        }
+
+        &.rejected {
+          background-color: rgba(239, 68, 68, 0.2);
+          color: #ef4444;
+        }
+      }
+    }
+
+    .item-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      p {
+        margin: 0;
+        font-size: 0.875rem;
+      }
+
+      .email {
+        color: #8b92b0;
+      }
+
+      .type {
+        color: #ff6b35;
+        font-weight: 500;
+      }
+
+      .date {
+        color: #6b7280;
+        font-size: 0.8125rem;
+        margin-top: 0.25rem;
+      }
+    }
+  }
+}
