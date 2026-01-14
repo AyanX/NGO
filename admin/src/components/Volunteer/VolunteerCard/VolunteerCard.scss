@@ -1,0 +1,73 @@
+.volunteer-card {
+  padding: 20px;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+
+  &:hover {
+    background-color: var(--bg-hover);
+  }
+
+  &.selected {
+    border-color: var(--primary-color);
+    background-color: var(--bg-hover);
+  }
+
+  .volunteer-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .volunteer-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .status-badge {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: lowercase;
+
+    &.status-pending {
+      background-color: var(--status-pending-bg);
+      color: var(--status-pending-text);
+    }
+
+    &.status-approved {
+      background-color: var(--status-approved-bg);
+      color: var(--status-approved-text);
+    }
+
+    &.status-rejected {
+      background-color: var(--status-rejected-bg);
+      color: var(--status-rejected-text);
+    }
+  }
+
+  .volunteer-email {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+  }
+
+  .volunteer-type {
+    font-size: 14px;
+    color: var(--primary-color);
+    margin: 0 0 8px 0;
+    font-weight: 500;
+  }
+
+  .volunteer-date {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+}

@@ -1,0 +1,81 @@
+.volunteer-dashboard {
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  gap: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+  margin-top: -20px;
+   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  .dashboard-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard-header {
+    margin-bottom: 32px;
+
+    .dashboard-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 8px 0;
+    }
+
+    .dashboard-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+  }
+
+  .dashboard-right {
+    position: relative;
+  }
+}
+
+@media (max-width: 1024px) {
+  .volunteer-dashboard {
+    grid-template-columns: 380px 1fr;
+    gap: 20px;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .volunteer-dashboard {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+
+    .dashboard-left {
+      padding: 0;
+
+      &.hide-mobile {
+        display: none;
+      }
+    }
+
+    .dashboard-right {
+      display: none;
+
+      &.show-mobile {
+        display: block;
+      }
+    }
+
+    .dashboard-header {
+      margin-bottom: 24px;
+
+      .dashboard-title {
+        font-size: 24px;
+      }
+
+      .dashboard-subtitle {
+        font-size: 14px;
+      }
+    }
+  }
+}

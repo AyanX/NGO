@@ -17,7 +17,7 @@ const navLinks = [
   { label: "Home", icon: Home, to: "/" },
   { label: "Messages", icon: Mail, to: "/messages" },
   { label: "Volunteers", icon: Users, to: "/volunteer-applications" },
-  { label: "FAQs", icon: MessageSquare, to: "#" },
+  { label: "FAQs", icon: MessageSquare, to: "/faqs" },
   { label: "Exit", icon: LogOut, to: "#" },
 ];
 

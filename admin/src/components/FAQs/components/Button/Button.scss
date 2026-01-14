@@ -1,0 +1,66 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.button {
+  @include button-base;
+
+  &--primary {
+    background: $orange-primary;
+    color: $text-primary;
+
+    &:hover:not(:disabled) {
+      background: $orange-hover;
+    }
+
+    &:active:not(:disabled) {
+      background: $orange-active;
+    }
+  }
+
+  &--secondary {
+    background: $bg-tertiary;
+    color: $text-secondary;
+
+    &:hover:not(:disabled) {
+      background: $gray-dark;
+      color: $text-primary;
+    }
+  }
+
+  &--edit {
+    background: $blue-primary;
+    color: $text-primary;
+
+    &:hover:not(:disabled) {
+      background: $blue-hover;
+    }
+  }
+
+  &--unpublish {
+    background: $yellow-primary;
+    color: $text-primary;
+
+    &:hover:not(:disabled) {
+      background: $yellow-hover;
+    }
+  }
+
+  &--delete {
+    background: $red-primary;
+    color: $text-primary;
+
+    &:hover:not(:disabled) {
+      background: $red-hover;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    font-size: $font-size-lg;
+  }
+}

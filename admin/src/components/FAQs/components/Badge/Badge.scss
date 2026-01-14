@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-md;
+  border-radius: 6px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+
+  &--published {
+    background: $green-bg;
+    color: $text-primary;
+  }
+
+  &--draft {
+    background: $gray-dark;
+    color: $text-secondary;
+  }
+
+  &--category {
+    background: $purple-bg;
+    color: $text-primary;
+  }
+
+  &--default {
+    background: $bg-tertiary;
+    color: $text-secondary;
+  }
+}

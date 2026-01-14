@@ -1,0 +1,118 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.manage-faqs {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+
+  @include mobile {
+    padding: $spacing-xl $spacing-lg;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-3xl;
+    gap: $spacing-2xl;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-xl;
+    }
+  }
+
+  &__title-section {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin: 0 0 $spacing-sm 0;
+
+    @include mobile {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  &__filters {
+    display: flex;
+    gap: $spacing-sm;
+
+    @include mobile {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__filter {
+    padding: $spacing-md $spacing-xl;
+    background: transparent;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    color: $text-secondary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: all $transition-base;
+    white-space: nowrap;
+
+    @include mobile {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &:hover {
+      background: $bg-tertiary;
+      color: $text-primary;
+    }
+
+    &.active {
+      background: $orange-primary;
+      color: $text-primary;
+      border-color: $orange-primary;
+    }
+  }
+
+  &__add-section {
+    margin-bottom: $spacing-2xl;
+
+    @include mobile {
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  &__list {
+    margin-top: $spacing-2xl;
+  }
+
+  &__loading,
+  &__error,
+  &__empty {
+    @include card;
+    text-align: center;
+    color: $text-secondary;
+    font-size: $font-size-lg;
+    padding: $spacing-3xl;
+  }
+
+  &__error {
+    color: $red-primary;
+    background: rgba($red-primary, 0.1);
+  }
+
+  &__empty {
+    color: $text-muted;
+  }
+}

@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.faq-card {
+  @include card;
+  margin-bottom: $spacing-xl;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+
+  &__badges {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+  }
+
+  &__date {
+    font-size: $font-size-sm;
+    color: $text-muted;
+  }
+
+  &__question {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin: 0 0 $spacing-lg 0;
+    line-height: 1.4;
+  }
+
+  &__answer {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0 0 $spacing-xl 0;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+
+    @include mobile {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

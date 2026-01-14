@@ -22,6 +22,44 @@
   --radius: 14px;
 }
 
+
+
+
+:root {
+ 
+
+  --bg-primary: #1a1f2e;
+  --bg-secondary: #2a3142;
+  --bg-hover: #353d52;
+
+  --text-primary: #ffffff;
+  --text-secondary: #a8b2d1;
+  --text-tertiary: #6b7789;
+
+  --primary-color: #ff6b35;
+
+  --status-pending-bg: #fbbf24;
+  --status-pending-text: #78350f;
+
+  --status-approved-bg: #22c55e;
+  --status-approved-text: #14532d;
+
+  --status-rejected-bg: #ef4444;
+  --status-rejected-text: #7f1d1d;
+
+  --success-color: #22c55e;
+  --success-hover: #16a34a;
+
+  --danger-color: #ef4444;
+  --danger-hover: #dc2626;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -41,13 +79,13 @@ h1, h2, h3 {
 .App {
   margin: 0 auto;
   width: 82%;
-  padding: 10px;
+  padding:0 10px;
   min-height: 100vh;
   border:1px solid red;
 
 
   @media (max-width: 1200px) {
-    width: 88%;
+    width: 90%;
   }
   @media (max-width: 768px) {
     width: 95%;

@@ -1,0 +1,39 @@
+.volunteer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  max-height: calc(100vh - 250px);
+  padding-right: 8px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--bg-hover);
+    border-radius: 4px;
+
+    &:hover {
+      background: var(--text-tertiary);
+    }
+  }
+
+  .empty-list {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+  }
+}
+
+@media (max-width: 768px) {
+  .volunteer-list {
+    max-height: none;
+    padding-right: 0;
+  }
+}
