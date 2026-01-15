@@ -1,107 +1,30 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import MessageList from "./List/MessageLIst";
 import MessageDetail from "./MessageDetail/MessageDetail";
 import "./Messages.scss";
 import { sectionHeading } from "../utils/utils";
-
-const INITIAL_MESSAGES = [
-  {
-    id: 1,
-    name: "Sarah Johnson",
-    email: "sarah.j@email.com",
-    subject: "Partnership Proposal",
-    message:
-      "Hello, I represent a tech company interested in partnering with Urban Trickles to provide digital literacy training to communities. We have experience working with NGOs and would love to discuss how we can collaborate to empower more people through technology education.",
-    read: false,
-    date: "2024-01-15",
-  },
-  {
-    id: 2,
-    name: "Michael Chen",
-    email: "mchen@company.com",
-    subject: "Donation Information",
-    message:
-      "I would like to make a contribution to support your programs. Could you please provide information about donation options and how the funds are utilized? I am particularly interested in supporting educational initiatives.",
-    read: false,
-    date: "2024-01-14",
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    email: "emily.r@gmail.com",
-    subject: "Volunteer Opportunity",
-    message:
-      "I am a registered nurse with 5 years of experience and I would love to volunteer for your medical outreach programs. I have weekends available and can commit to at least 6 months. Please let me know how I can get involved.",
-    read: true,
-    date: "2024-01-13",
-  },
-  {
-    id: 4,
-    name: "David Omondi",
-    email: "domondi@email.co.ke",
-    subject: "General Inquiry",
-    message:
-      "I came across your organization and I am impressed by the work you do. I would like to learn more about your current projects and how I might be able to contribute either through volunteering or partnerships.",
-    read: false,
-    date: "2024-01-12",
-  },
-  {
-    id: 5,
-    name: "Lisa Thompson",
-    email: "lisa.thompson@foundation.org",
-    subject: "Grant Opportunity",
-    message:
-      "Our foundation is offering grants for community development projects. Based on your organization's mission, I believe you would be a strong candidate. The application deadline is next month. Would you be interested in discussing this further?",
-    read: true,
-    date: "2024-01-11",
-  },
-  {
-    id: 6,
-    name: "James Park",
-    email: "jpark@tech.com",
-    subject: "Workshop Collaboration",
-    message:
-      "We are planning a technology workshop series and would love to collaborate with your organization. We can provide equipment and trainers. Let us know if this aligns with your goals.",
-    read: true,
-    date: "2024-01-10",
-  },
-  {
-    id: 7,
-    name: "Maria Garcia",
-    email: "maria.garcia@edu.org",
-    subject: "Student Internship Program",
-    message:
-      "Our university is looking for internship placements for social work students. Would your organization be open to hosting interns? They would need supervision but can contribute significantly to your projects.",
-    read: true,
-    date: "2024-01-09",
-  },
-  {
-    id: 8,
-    name: "Ahmed Hassan",
-    email: "a.hassan@mail.com",
-    subject: "Resource Sharing",
-    message:
-      "I work with a similar organization in another region. I think we could benefit from sharing resources and best practices. Would you be interested in setting up a call to explore collaboration opportunities?",
-    read: false,
-    date: "2024-01-08",
-  },
-];
+import { useMessages } from "../utils/useMessagesHook";
 
 function Messages() {
-  const [messages, setMessages] = useState(INITIAL_MESSAGES);
+  const { data, loading, error } = useMessages();
+
+  const [messages, setMessages] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [filter, setFilter] = useState("all");
   const [deletingIds, setDeletingIds] = useState(new Set());
   const [mobileView, setMobileView] = useState(null);
 
   const { filteredMessages, unreadCount, totalCount } = useMemo(() => {
-    const filtered = messages.filter((msg) => {
-      if (filter === "unread") return !msg.read;
-      if (filter === "read") return msg.read;
-      return true;
-    });
+    const filtered =
+      messages &&
+      messages.filter((msg) => {
+        const isRead = msg.read === true || msg.read === 1;
+        if (filter === "unread") return !isRead;
+        if (filter === "read") return isRead;
+        return true;
+      });
 
-    const unread = messages.filter((msg) => !msg.read).length;
+    const unread = messages.filter((msg) => msg.read === false).length;
 
     return {
       filteredMessages: filtered,
@@ -196,8 +119,28 @@ function Messages() {
     unreadCount !== 1 ? "s" : ""
   } • ${totalCount} total`;
 
+  useEffect(() => {
+    if (!data) return;
+
+    const normalized = data.map((msg) => ({
+      ...msg,
+      read: Boolean(msg.read),
+      date: msg.createdAt?.split(" ")[0],
+    }));
+
+    setMessages(normalized);
+  }, [data]);
+
+  if (error) {
+    return <div>Error loading messages...</div>;
+  }
+
+  if (loading) {
+    return <div>Loading messages...</div>;
+  }
+
   return (
-    <>
+    <div style={{height:"100%", }}>
       <div className="messages-intro">
         {sectionHeading("Messages", subHeading)}
         <div className="filter-buttons">
@@ -254,7 +197,7 @@ function Messages() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

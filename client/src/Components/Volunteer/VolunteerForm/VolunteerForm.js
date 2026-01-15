@@ -1,189 +1,147 @@
-import { useState } from 'react';
-import axios from 'axios';
-import './VolunteerForm.scss';
-import Wrapper from "../../../Assets/utils/Wrapper"
-import { smallHeader } from '../../../Assets/utils/utils';
-const VolunteerFormSection = () => {
-  const countries = [
-    'Kenya',
-    'Uganda',
-    'Tanzania',
-    'Ethiopia',
-    'Rwanda'
-  ];
+import { memo } from "react";
+import { useVolunteerForm } from "./useVolunteerForm";
+import "./VolunteerForm.scss";
+import Wrapper from "../../../Assets/utils/Wrapper";
 
-  const volunteerTypes = [
-    'Community Service',
-    'Environmental',
-    'Education',
-    'Healthcare',
-    'Animal Welfare',
-    "other"
-  ];
+const VolunteerForm2 = () => {
+  const { formData, loading, error, success, handleChange, submitForm } =
+    useVolunteerForm();
 
-  const [formData, setFormData] = useState({
-    country: '',
-    volunteerType: '',
-    hours: '',
-    phoneNumber: '',
-    yearsOfService: ''
-  });
-
-  const [message, setMessage] = useState({ text: '', type: '' });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const validateForm = () => {
-    return (
-      formData.country &&
-      formData.volunteerType &&
-      formData.hours &&
-      formData.phoneNumber &&
-      formData.yearsOfService
-    );
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) {
-      setMessage({ text: 'Please fill in all fields', type: 'error' });
-      setTimeout(() => setMessage({ text: '', type: '' }), 3000);
-      return;
-    }
-
-    try {
-      const response = await axios.post('http://localhost:5000', formData);
-
-      if (response.status === 201) {
-        setMessage({ text: 'Successfully submitted!', type: 'success' });
-        setFormData({
-          country: '',
-          volunteerType: '',
-          hours: '',
-          phoneNumber: '',
-          yearsOfService: ''
-        });
-      } else {
-        setMessage({ text: 'Submission failed. Please try again.', type: 'error' });
-      }
-    } catch (error) {
-      setMessage({ text: 'An error occurred. Please try again.', type: 'error' });
-    }
-
-    setTimeout(() => setMessage({ text: '', type: '' }), 3000);
-  };
+  if (!formData) return null;
 
   return (
-    
-    <div className="volunteer-form-container">
+    <section className="volunteer-wrapper">
+      <div className="volunteer-form">
+        <h2>Volunteer Application</h2>
 
+        {error && <p className="error">{error}</p>}
+        {success && (
+          <p className="success">Thank you! Your application was submitted.</p>
+        )}
 
-    {
-        smallHeader("Become a Volunteer","Join Us")
-    }
-
-      {message.text && (
-        <div className={`message ${message.type}`}>
-          {message.text}
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="country">Country</label>
-          <select
-            id="country"
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            className="form-select"
-          >
-            <option value="">Select Country</option>
-            {countries.map((country) => (
-              <option key={country} value={country}>
-                {country}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="volunteerType">Volunteer Type</label>
-          <select
-            id="volunteerType"
-            name="volunteerType"
-            value={formData.volunteerType}
-            onChange={handleChange}
-            className="form-select"
-          >
-            <option value="">Select Type</option>
-            {volunteerTypes.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="hours">Hours</label>
-          <input
-            type="text"
-            id="hours"
-            name="hours"
-            value={formData.hours}
-            onChange={handleChange}
-            placeholder="Hours per week"
-            className="form-input"
-          />
-        </div>
-
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="phoneNumber">Phone Number</label>
+        <form
+          className="form-grid"
+          onSubmit={(e) => {
+            e.preventDefault();
+            submitForm();
+          }}
+        >
+          {/* Left Column */}
+          <div className="column">
             <input
-              type="text"
-              id="phoneNumber"
-              name="phoneNumber"
-              value={formData.phoneNumber}
+              name="name"
+              placeholder="Full Name"
+              value={formData.name}
               onChange={handleChange}
-              placeholder="Enter your phone number"
-              className="form-input"
+              required
             />
+            <input
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+            <input
+              name="location"
+              placeholder="Location (e.g. Nairobi, Kenya)"
+              value={formData.location}
+              onChange={handleChange}
+              required
+            />
+            <input
+              name="age"
+              type="number"
+              placeholder="Age"
+              value={formData.age}
+              onChange={handleChange}
+              required
+            />
+             <select
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Volunteer Area</option>
+              <option value="Education">Education</option>
+              <option value="Health">Health</option>
+              <option value="Technology">Technology</option>
+              <option value="Community">Community</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="yearsOfService">Years of Service</label>
-            <input
-              type="text"
-              id="yearsOfService"
-              name="yearsOfService"
-              value={formData.yearsOfService}
-              onChange={handleChange}
-              placeholder="Years"
-              className="form-input"
-            />
-          </div>
-        </div>
+          {/* Right Column */}
+          <div className="column">
+           
 
-        <button type="submit" className="submit-button">
-          BECOME A VOLUNTEER
-        </button>
-      </form>
-    </div>
+            <input
+              name="availability"
+              placeholder="Availability (e.g. Weekends)"
+              value={formData.availability}
+              onChange={handleChange}
+              required
+            />
+
+            <textarea
+              name="motivation"
+              placeholder="Why do you want to volunteer?"
+              value={formData.motivation}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              name="languages"
+              placeholder="Languages spoken (optional)"
+              value={formData.languages}
+              onChange={handleChange}
+            />
+
+            <label className="checkbox">
+              <input
+                type="checkbox"
+                name="confirmAccuracy"
+                checked={formData.confirmAccuracy}
+                onChange={handleChange}
+                required
+              />
+              I confirm the information provided is accurate
+            </label>
+
+            <label className="checkbox">
+              <input
+                type="checkbox"
+                name="agreeConduct"
+                checked={formData.agreeConduct}
+                onChange={handleChange}
+                required
+              />
+              I agree to the volunteer code of conduct
+            </label>
+          </div>
+
+          <div className="volunteerform-btn">
+            <button type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "Submit"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 };
 
+const VolunteerForm = () => {
+  return <Wrapper component={<VolunteerForm2 />} />;
+};
 
-const VolunteerForm = ()=>{
-    return <Wrapper component={<VolunteerFormSection/>}/>
-}
-
-export default VolunteerForm;
+export default memo(VolunteerForm);

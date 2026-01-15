@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_BASE_URL = 'http://localhost:5000/faqs';
 
-const mockFAQs = [
+/* const mockFAQs = [
   {
     id: 1,
     category: 'Volunteering',
@@ -100,16 +100,15 @@ const mockFAQs = [
     date: '2023-12-30'
   }
 ];
-
-let localFAQs = [...mockFAQs];
+ */
 
 export const getAllFAQs = async () => {
   try {
     const response = await axios.get(API_BASE_URL);
+    console.log("Fetched FAQs:", response.data);
     return response.data;
   } catch (error) {
-    console.warn('Using mock data:', error.message);
-    return localFAQs;
+    return {};
   }
 };
 
@@ -118,15 +117,7 @@ export const createFAQ = async (faqData) => {
     const response = await axios.post(`${API_BASE_URL}/create`, faqData);
     return response.data;
   } catch (error) {
-    console.warn('Using mock data:', error.message);
-    const newFAQ = {
-      ...faqData,
-      id: Date.now(),
-      date: new Date().toISOString().split('T')[0],
-      status: 'draft'
-    };
-    localFAQs = [newFAQ, ...localFAQs];
-    return newFAQ;
+    return 
   }
 };
 
@@ -135,13 +126,7 @@ export const updateFAQ = async (id, faqData) => {
     const response = await axios.put(`${API_BASE_URL}/update/${id}`, faqData);
     return response.data;
   } catch (error) {
-    console.warn('Using mock data:', error.message);
-    const index = localFAQs.findIndex(faq => faq.id === id);
-    if (index !== -1) {
-      localFAQs[index] = { ...localFAQs[index], ...faqData };
-      return localFAQs[index];
-    }
-    throw new Error('FAQ not found');
+    return
   }
 };
 
@@ -150,9 +135,7 @@ export const deleteFAQ = async (id) => {
     const response = await axios.delete(`${API_BASE_URL}/delete/${id}`);
     return response.data;
   } catch (error) {
-    console.warn('Using mock data:', error.message);
-    localFAQs = localFAQs.filter(faq => faq.id !== id);
-    return { success: true, id };
+    return
   }
 };
 
@@ -161,13 +144,7 @@ export const unpublishFAQ = async (id) => {
     const response = await axios.patch(`${API_BASE_URL}/unpublish/${id}`);
     return response.data;
   } catch (error) {
-    console.warn('Using mock data:', error.message);
-    const index = localFAQs.findIndex(faq => faq.id === id);
-    if (index !== -1) {
-      localFAQs[index] = { ...localFAQs[index], status: 'draft' };
-      return localFAQs[index];
-    }
-    throw new Error('FAQ not found');
+    return
   }
 };
 

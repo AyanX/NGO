@@ -22,7 +22,6 @@
 .messages-list-section {
   display: flex;
   flex-direction: column;
-  height: 500px;
   overflow-y: scroll;
   border-right: 1px solid #2d3548;
   overflow: hidden;
@@ -58,7 +57,7 @@
 
 .message-list {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .message-list::-webkit-scrollbar {
@@ -151,7 +150,7 @@
 }
 
 .messages-detail-section {
-  background-color: #1f2937;
+  background-color: hsl(215, 28%, 17%);
   overflow-y: auto;
   border-radius: 15px;
   justify-content: center;

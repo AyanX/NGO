@@ -66,6 +66,7 @@
       font-weight: 500;
       transition: color 0.3s ease;
       white-space: nowrap;
+      background-color: transparent !important;
 
       &:hover {
         color: var(--secondary-color);

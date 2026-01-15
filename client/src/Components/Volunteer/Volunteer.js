@@ -1,8 +1,8 @@
 import React from 'react'
 import VolunteerHero  from './VolunteerIntro/VolunteerIntro'
 import VolunteerOptions from './VolunteerOptions/VolunteerOptions'
-import VolunteerForm from './VolunteerForm/VolunteerForm'
 import education from "../../Assets/education.webp";
+import VolunteerForm from './VolunteerForm/VolunteerForm';
 const Volunteer = () => {
 
   const volunterHeroDetails = {
