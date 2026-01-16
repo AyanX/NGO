@@ -1,3 +1,4 @@
+const { eq } = require("drizzle-orm");
 const db = require("../../db/db");
 const { volunteersTable } = require("../../modals/schema");
 
@@ -47,7 +48,83 @@ const getVolunteers = async (req, res) => {
   }
 };
 
+const approveVolunteer = async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).json({ error: "Volunteer ID is required" });
+  }
+
+  try {
+    const result = await db
+      .update(volunteersTable)
+      .set({ status: "approved" })
+      .where(eq(volunteersTable.id, id));
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: "Volunteer not found" });
+    }
+
+    res.status(200).json({ message: "Volunteer approved successfully" });
+  } catch (error) {
+    console.error("Error approving volunteer:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+const rejectVolunteer = async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).json({ error: "Volunteer ID is required" });
+  }
+
+  try {
+    const result = await db
+      .update(volunteersTable)
+      .set({ status: "rejected" })
+      .where(eq(volunteersTable.id, id));
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: "Volunteer not found" });
+    }
+
+    res.status(200).json({ message: "Volunteer rejected successfully" });
+  } catch (error) {
+    console.error("Error rejecting volunteer:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+const deleteVolunteer = async (req, res) => {
+  const { id } = req.params;
+  if(!id){
+    return res.status(400).json({ error: "Volunteer ID is required" });
+  }
+
+  try {
+    const result = await db
+      .delete(volunteersTable)
+      .where(eq(volunteersTable.id, id));
+    if (result.length === 0) {  
+      return res.status(404).json({ error: "Volunteer not found" });
+    }
+
+    return res.status(200).json({ message: "Volunteer deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting volunteer:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+
+}
+
+
+
+
 module.exports = {
   createVolunteer,
   getVolunteers,
+  approveVolunteer,
+  deleteVolunteer,
+  rejectVolunteer,
 };
