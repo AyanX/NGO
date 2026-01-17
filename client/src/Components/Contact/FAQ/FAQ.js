@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import "./FAQ.scss";
 import Wrapper from "../../../Assets/utils/Wrapper";
 import { smallHeader } from "../../../Assets/utils/utils";
+import useFaqs from "../../../Assets/utils/useFAQsData";
+import Loader from "../../../Assets/utils/Loader";
 
-const faqData = [
+/* const faqData = [
   {
     title: "How can I donate to Urban Trikles?",
     content:
@@ -21,7 +23,7 @@ const faqData = [
       "Your donation directly supports our programs including food distribution, medical outreach, education initiatives, and skills training. We maintain full transparency with quarterly impact reports available to all donors.",
   },
 ];
-
+ */
 const containerVariants = {
   hidden: {},
   visible: {
@@ -44,11 +46,14 @@ const itemVariants = {
 };
 
 function FAQSection() {
+  const { data:faqData, loading, error } = useFaqs();
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+
+
 
   return (
     <section className="faq">
@@ -63,8 +68,11 @@ function FAQSection() {
          {smallHeader("Frequently Asked Questions", "FAQ")}
         </motion.section>
 
-        <div className="faq__list">
-          {faqData.map((item, index) => (
+        
+          {loading || error ? <Loader/> :
+<motion.div className="faq__list">
+
+        {   faqData.map((item, index) => (
             <motion.div
               className={`faq__item ${
                 activeIndex === index ? "active" : ""
@@ -76,7 +84,7 @@ function FAQSection() {
                 className="faq__question"
                 onClick={() => toggle(index)}
               >
-                {item.title}
+                {item?.question}
                 <span className="faq__icon">
                   {activeIndex === index ? "−" : "+"}
                 </span>
@@ -91,11 +99,14 @@ function FAQSection() {
                 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
-                <p>{item.content}</p>
+                <p>{item.answer}</p>
               </motion.div>
             </motion.div>
           ))}
-        </div>
+          
+          </motion.div>
+          }
+        
       </motion.div>
     </section>
   );

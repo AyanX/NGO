@@ -71,13 +71,18 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+   
   }
 
   .btn {
-    padding: 0.85rem 1.6rem;
+    padding: 0.4rem 1.2rem;
     border-radius: 10px;
     font-size: 0.95rem;
     cursor: pointer;
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     border: none;
 
     &.primary {

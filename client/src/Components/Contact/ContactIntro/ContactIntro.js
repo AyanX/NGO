@@ -1,7 +1,8 @@
 import React from "react";
 import "./ContactIntro.scss";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, ArrowRight ,MessageSquare ,PhoneCall } from "lucide-react";
+import useContacts from "../../../Assets/utils/useContacts";
 const barVariants = {
   hidden: { opacity: 0, y: 10 },
   visible: (i) => ({
@@ -15,34 +16,35 @@ const barVariants = {
   }),
 };
 
-
-
-const contactIntroData = [
-            {
-              icon: <MapPin size={28}/>,
-              title: "Visit Our Office",
-              text: "123 Hope Street, Nairobi",
-              sub: "Mon–Fri: 9AM – 5PM",
-              className: "blue",
-            },
-            {
-              icon: <Phone size={28} />,
-              title: "Call Anytime",
-              text: "+254 700 123 456",
-              sub: "We respond within 24 hours",
-              className: "orange",
-            },
-            {
-              icon: <Mail size={28}/>,
-              title: "Email Us",
-              text: "info@urbantrickles.org",
-              sub: "Quick response guaranteed",
-              className: "green",
-            },
-          ]
-
-
 const ContactIntro = () => {
+  const { contacts } = useContacts();
+
+  const { location, email, phone } = contacts;
+
+  const contactIntroData = [
+    {
+      icon: <MapPin size={28} />,
+      title: "Visit Our Office",
+      text: location || "location",
+      sub: "Mon–Fri: 9AM – 5PM",
+      className: "blue",
+    },
+    {
+      icon: <Phone size={28} />,
+      title: "Call Anytime",
+      text: phone || "phone number",
+      sub: "We respond within 24 hours",
+      className: "orange",
+    },
+    {
+      icon: <Mail size={28} />,
+      title: "Email Us",
+      text: email || "email address",
+      sub: "Quick response guaranteed",
+      className: "green",
+    },
+  ];
+
   return (
     <section className="contact">
       <div className="contact__overlay" />
@@ -64,8 +66,13 @@ const ContactIntro = () => {
           </p>
 
           <div className="contact__actions">
-            <button className="btn primary">✉ Send Message</button>
-            <button className="btn outline">📞 Call Us Now</button>
+            <a
+              href={`mailto:${email || "email address"}`}
+              className="btn primary"
+            >
+              <button className="btn primary"><MessageSquare size={16}/> Send Message</button>
+            </a>
+            <button className="btn outline"><PhoneCall size={16} color="var(  --blue-color)"/> Call Us Now</button>
           </div>
         </div>
 
@@ -96,7 +103,5 @@ const ContactIntro = () => {
     </section>
   );
 };
-
-
 
 export default ContactIntro;

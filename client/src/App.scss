@@ -18,6 +18,7 @@
   --light-dark-bg: #1e2128ff;
   --footer-bg: #0054a8ff;
   --ubuntu:"Ubuntu", sans-serif;
+  --bulma-navbar-background-color:transparent;
 }
 
 * {
@@ -83,7 +84,9 @@
   text-align: center;
   color: var(--primary-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+ a{
+  text-decoration:none;
+ }
   @media (max-width: 768px) {
     padding: 2rem 1.5rem;
   }
