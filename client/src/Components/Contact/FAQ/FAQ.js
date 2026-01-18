@@ -25,8 +25,9 @@ import Loader from "../../../Assets/utils/Loader";
 ];
  */
 const containerVariants = {
-  hidden: {},
+  hidden: { marginBottom: 60},
   visible: {
+    marginBottom: 0,
     transition: {
       staggerChildren: 0.15,
     },
@@ -34,7 +35,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 60 },
+  hidden: { opacity: 1, y: 60  },
   visible: {
     opacity: 1,
     y: 0,
@@ -46,14 +47,12 @@ const itemVariants = {
 };
 
 function FAQSection() {
-  const { data:faqData, loading, error } = useFaqs();
+  const { data: faqData, loading, error } = useFaqs();
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-
-
 
   return (
     <section className="faq">
@@ -65,53 +64,51 @@ function FAQSection() {
         viewport={{ once: true, amount: 0.2 }}
       >
         <motion.section className="faq__title" variants={itemVariants}>
-         {smallHeader("Frequently Asked Questions", "FAQ")}
+          {smallHeader("Frequently Asked Questions", "FAQ")}
         </motion.section>
 
-        
-          {loading || error ? <Loader/> :
-<motion.div className="faq__list">
+        {loading || error ? (
+          <Loader />
+        ) : (
+          <motion.div className="faq__list">
+            {faqData.map((item, index) => {
+              return (
+                     item.status!== "draft" && <motion.div
+                  className={`faq__item ${activeIndex === index ? "active" : ""}`}
+                  key={index}
+                  variants={itemVariants}
+                >
+                  <button
+                    className="faq__question"
+                    onClick={() => toggle(index)}
+                  >
+                    {item?.question}
+                    <span className="faq__icon">
+                      {activeIndex === index ? "−" : "+"}
+                    </span>
+                  </button>
 
-        {   faqData.map((item, index) => (
-            <motion.div
-              className={`faq__item ${
-                activeIndex === index ? "active" : ""
-              }`}
-              key={index}
-              variants={itemVariants}
-            >
-              <button
-                className="faq__question"
-                onClick={() => toggle(index)}
-              >
-                {item?.question}
-                <span className="faq__icon">
-                  {activeIndex === index ? "−" : "+"}
-                </span>
-              </button>
-
-              <motion.div
-                className="faq__answer"
-                initial={false}
-                animate={{
-                  height: activeIndex === index ? "auto" : 0,
-                  opacity: activeIndex === index ? 1 : 0,
-                }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-              >
-                <p>{item.answer}</p>
-              </motion.div>
-            </motion.div>
-          ))}
-          
+                  <motion.div
+                    className="faq__answer"
+                    initial={false}
+                    animate={{
+                      height: activeIndex === index ? "auto" : 0,
+                      opacity: activeIndex === index ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  >
+                    <p>{item.answer}</p>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
           </motion.div>
-          }
-        
+        )}
       </motion.div>
     </section>
   );
 }
 
 export default function FAQ() {
-    return <Wrapper component={<FAQSection />}  bg="var(--footer-icon-bg)"/>
+  return <Wrapper component={<FAQSection />} bg="var(--footer-icon-bg)" />;
 }

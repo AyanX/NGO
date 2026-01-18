@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import "./NavBar.scss";
 import logo from "../../Assets/logo.png";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import ThemeToggle from "../Theme/Theme";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,7 +80,7 @@ function Navbar() {
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-
+          <ThemeToggle />
           <div className={`navbar-menu ${isMenuOpen ? "is-active" : ""}`}>
             <div className="navbar-center">
               {menuItems.map((item, index) => (

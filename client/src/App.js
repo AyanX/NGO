@@ -37,8 +37,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Route>
         <Route path="*" element={<Error404 />} />
-      </>
-    )
+      </>,
+    ),
   );
 
   return (

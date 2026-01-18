@@ -17,8 +17,36 @@
   --footer-icon-bg: rgba(255, 255, 255, 0.12);
   --light-dark-bg: #1e2128ff;
   --footer-bg: #0054a8ff;
-  --ubuntu:"Ubuntu", sans-serif;
-  --bulma-navbar-background-color:transparent;
+  --ubuntu: "Ubuntu", sans-serif;
+  --bulma-navbar-background-color: transparent;
+}
+
+:root[data-theme="light"] {
+  /* ===== BRAND ===== */
+  --primary-color: #ffffff;
+  --secondary-color: #f97316; /* same orange */
+  --bright-blue: #2563eb;
+  --blue-color: #2563eb;
+  --dark-blue: #1e3a8a;
+
+  /* ===== BACKGROUNDS ===== */
+  --background-color: #f9fafb; /* page background */
+  --light-dark-bg: #ffffff; /* cards / surfaces */
+  --gray-bg: #f1f5f9; /* soft sections */
+  --hero-background-color: #e0f2fe; /* hero overlay */
+  --footer-bg: #0f172a; /* keep footer dark */
+
+  /* ===== TEXT ===== */
+  --text-color: #111827; /* primary text */
+  --dark-text: #020617; /* headings */
+  --darker-gray: #475569; /* muted text */
+  --footer-text-color: #e5e7eb;
+  --footer-muted-color: #94a3b8;
+
+  /* ===== UI ===== */
+  --footer-icon-bg: rgba(255, 255, 255, 0.15);
+  --ubuntu: "Ubuntu", sans-serif;
+  --bulma-navbar-background-color: transparent;
 }
 
 * {
@@ -50,7 +78,7 @@
 
 .smallHeader__subtitle {
   font-family: var(--ubuntu);
-  
+
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
@@ -82,10 +110,12 @@
   padding: 2.5rem 1.2rem;
   text-align: center;
   color: var(--primary-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
- a{
-  text-decoration:none;
- }
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  a {
+    text-decoration: none;
+  }
   @media (max-width: 768px) {
     padding: 2rem 1.5rem;
   }
