@@ -5,6 +5,8 @@ import FAQForm from '../FAQForm/FAQForm';
 import FAQCard from '../FAQCard/FAQCard';
 import './ManageFAQs.scss';
 import { sectionHeading } from '../../../utils/utils';
+import Loader from '../../../utils/Loader';
+import { nanoid } from "nanoid";
 
 const ManageFAQs = () => {
   const context = useContext(FAQContext);
@@ -42,7 +44,7 @@ const ManageFAQs = () => {
     if (!context || !editingFAQ) return;
 
     try {
-      await context.editFAQ(editingFAQ.id, formData);
+      await context.editFAQ(editingFAQ?.id, formData);
       setEditingFAQ(null);
     } catch (error) {
       console.error('Error updating FAQ:', error);
@@ -95,20 +97,8 @@ const ManageFAQs = () => {
 
   const { loading, error, stats } = context;
 
-  if (loading) {
-    return (
-      <div className="manage-faqs">
-        <div className="manage-faqs__loading">Loading FAQs...</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="manage-faqs">
-        <div className="manage-faqs__error">Error: {error}</div>
-      </div>
-    );
+  if (loading || error) {
+    return <Loader />
   }
 
   return (
@@ -182,7 +172,8 @@ const ManageFAQs = () => {
         ) : (
           filteredFAQs.map(faq => (
             <FAQCard
-              key={faq.id}
+              fakeId={nanoid()}
+              key={faq?.id}
               faq={faq}
               onEdit={handleEditClick}
               onUnpublish={handleUnpublish}

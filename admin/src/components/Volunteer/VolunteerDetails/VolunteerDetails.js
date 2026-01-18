@@ -30,14 +30,14 @@ function VolunteerDetails({ volunteer, onApprove, onReject, onDelete, onBack }) 
       <div className="details-header">
         <div className="header-content">
           <h2 className="volunteer-name">
-            {volunteer.name}
-            <span className={getStatusClass(volunteer.status)}>
-              {volunteer.status.toUpperCase()}
+            {volunteer?.name}
+            <span className={getStatusClass(volunteer?.status)}>
+              {volunteer?.status?.toUpperCase()}
             </span>
           </h2>
-          <p className="applied-date">Applied on {volunteer.appliedDate}</p>
+          <p className="applied-date">Applied on {volunteer?.createdAt?.split(" ")[0]}</p>
         </div>
-        <button className="delete-button" onClick={() => onDelete && onDelete(volunteer.id)}>
+        <button className="delete-button" onClick={() => onDelete && onDelete(volunteer?.id)}>
           <Trash2 size={18} />
           <span>Delete</span>
         </button>
@@ -50,7 +50,7 @@ function VolunteerDetails({ volunteer, onApprove, onReject, onDelete, onBack }) 
           </div>
           <div className="detail-content">
             <label>Email</label>
-            <p>{volunteer.email}</p>
+            <p>{volunteer?.email}</p>
           </div>
         </div>
 
@@ -60,7 +60,7 @@ function VolunteerDetails({ volunteer, onApprove, onReject, onDelete, onBack }) 
           </div>
           <div className="detail-content">
             <label>Phone</label>
-            <p>{volunteer.phone}</p>
+            <p>{volunteer?.phone}</p>
           </div>
         </div>
 
@@ -70,7 +70,7 @@ function VolunteerDetails({ volunteer, onApprove, onReject, onDelete, onBack }) 
           </div>
           <div className="detail-content">
             <label>Location</label>
-            <p>{volunteer.location}</p>
+            <p>{volunteer?.location}</p>
           </div>
         </div>
 
@@ -79,8 +79,8 @@ function VolunteerDetails({ volunteer, onApprove, onReject, onDelete, onBack }) 
             <User size={20} />
           </div>
           <div className="detail-content">
-            <label>Volunteer Type</label>
-            <p>{volunteer.type}</p>
+            <label>Volunteer Age</label>
+            <p>{volunteer?.age}</p>
           </div>
         </div>
 
@@ -89,8 +89,8 @@ function VolunteerDetails({ volunteer, onApprove, onReject, onDelete, onBack }) 
             <Star size={20} />
           </div>
           <div className="detail-content">
-            <label>Skills</label>
-            <p>{volunteer.skills}</p>
+            <label>Category</label>
+            <p>{volunteer?.category}</p>
           </div>
         </div>
 
@@ -100,7 +100,7 @@ function VolunteerDetails({ volunteer, onApprove, onReject, onDelete, onBack }) 
           </div>
           <div className="detail-content">
             <label>Availability</label>
-            <p>{volunteer.availability}</p>
+            <p>{volunteer?.availability}</p>
           </div>
         </div>
 
@@ -109,18 +109,19 @@ function VolunteerDetails({ volunteer, onApprove, onReject, onDelete, onBack }) 
             <Briefcase size={20} />
           </div>
           <div className="detail-content">
-            <label>Experience</label>
-            <p>{volunteer.experience}</p>
+            <label>Motivation</label>
+            <p>{volunteer?.motivation}</p>
           </div>
         </div>
       </div>
 
       <div className="action-buttons">
-        <button className="approve-button" onClick={() => onApprove && onApprove(volunteer.id)}>
+        <button className="approve-button" onClick={() => onApprove && onApprove(volunteer?.id)}>
           <Check size={20} />
           <span>Approve</span>
         </button>
-        <button className="reject-button" onClick={() => onReject && onReject(volunteer.id)}>
+        
+        <button className="reject-button" onClick={() => onReject && onReject(volunteer?.id)}>
           <X size={20} />
           <span>Reject</span>
         </button>

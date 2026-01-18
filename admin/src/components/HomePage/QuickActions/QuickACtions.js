@@ -21,7 +21,7 @@ const actions = [
     description: "Approve volunteers",
     icon: Users,
     color: "green",
-    to: "/applications",
+    to: "/volunteer-applications",
   },
   {
     title: "Manage FAQs",

@@ -9,7 +9,7 @@ function VolunteerList({ volunteers, selectedVolunteer, onSelectVolunteer }) {
           <VolunteerCard
             key={volunteer.id}
             volunteer={volunteer}
-            isSelected={selectedVolunteer && selectedVolunteer.id === volunteer.id}
+            isSelected={selectedVolunteer && selectedVolunteer?.id === volunteer.id}
             onClick={() => onSelectVolunteer(volunteer)}
           />
         ))

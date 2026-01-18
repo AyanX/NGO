@@ -42,9 +42,13 @@
     gap: 20px;
     padding: 24px;
   }
+  .volunteer-details .details-grid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 890px) {
   .volunteer-dashboard {
     grid-template-columns: 1fr;
     gap: 0;

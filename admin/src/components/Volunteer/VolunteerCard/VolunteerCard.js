@@ -11,14 +11,14 @@ function VolunteerCard({ volunteer, isSelected, onClick }) {
       onClick={onClick}
     >
       <div className="volunteer-card-header">
-        <h3 className="volunteer-name">{volunteer.name}</h3>
-        <span className={getStatusClass(volunteer.status)}>
-          {volunteer.status}
+        <h3 className="volunteer-name">{volunteer?.name}</h3>
+        <span className={getStatusClass(volunteer?.status)}>
+          {volunteer?.status}
         </span>
       </div>
-      <p className="volunteer-email">{volunteer.email}</p>
-      <p className="volunteer-type">{volunteer.type}</p>
-      <p className="volunteer-date">{volunteer.appliedDate}</p>
+      <p className="volunteer-email">{volunteer?.email}</p>
+      <p className="volunteer-type">{volunteer?.type}</p>
+      <p className="volunteer-date">{volunteer?.createdAt?.split(" ")[0]}</p>
     </div>
   );
 }

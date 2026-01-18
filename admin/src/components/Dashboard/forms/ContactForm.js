@@ -1,21 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Save , Contact } from "lucide-react";
 import { api } from "../../utils/api";
 import "./Forms.scss";
 
 const ContactForm = () => {
+
+
+
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
-    email: "",
-    phone: "",
-    location: "",
+    email: "-",
+    phone: "-",
+    location: "-",
   });
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await api.get("/contacts");
+        setForm(prev=>({...prev,...response.data}));
+      }  
+      catch (error) {
+        console.error("Error fetching contact data:", error);
+      }
+      finally {
+        setLoading(false);
+      }};
+    fetchData();
+  },[])
+
+
 
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      await api.post("/contact", form);
-    } finally {
+      await api.post("/contacts", form);
+    }
+    catch (error) {
+      setLoading(false);
+      return
+    }
+    
+    finally {
       setLoading(false);
     }
   };

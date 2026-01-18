@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Trash } from 'lucide-react';
+import { CheckCheck, Trash } from 'lucide-react';
 const MessageDetail = memo(function MessageDetail({ message, onDelete, onMarkAsRead, onBack }) {
   const handleDelete = useCallback(() => {
     onDelete(message.id);
@@ -34,21 +34,13 @@ const MessageDetail = memo(function MessageDetail({ message, onDelete, onMarkAsR
       </div>
 
       <div className="message-detail-content">
-        <h3>Subject: {message.subject}</h3>
+        <h3>{message.subject}</h3>
         <p>{message.message}</p>
       </div>
 
       <div className="message-detail-actions">
-        <button className="reply-button">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M9.5 4.5L4 10l5.5 5.5M4.5 10h11"/>
-          </svg>
-          Reply
-        </button>
         <button className="mark-read-button" onClick={handleMarkAsRead}>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M2 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4zm9.854 4.854l-5 5a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L8.5 11.793l4.646-4.647a.5.5 0 0 1 .708.708z"/>
-          </svg>
+          <CheckCheck size={20} />
           Mark as {message.read ? 'Unread' : 'Read'}
         </button>
       </div>

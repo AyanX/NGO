@@ -233,6 +233,16 @@
   }
 }
 
+@media (max-width: 890px){
+  .volunteer-details .mobile-back-button.mobile-only{
+     display: flex;
+      padding: 10px 14px;
+      svg {
+        color: red;
+      }
+  }
+}
+
 @media (max-width: 768px) {
   .volunteer-details {
     padding: 20px;

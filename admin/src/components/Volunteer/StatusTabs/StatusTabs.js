@@ -3,7 +3,7 @@ import './StatusTabs.scss';
 function StatusTabs({ activeFilter, onFilterChange, counts }) {
   const tabs = [
     { id: 'all', label: 'All' },
-    { id: 'pending', label: `Pending (${counts.pending})` },
+    { id: 'pending', label: `Pending (${counts?.pending})` },
     { id: 'approved', label: 'Approved' },
     { id: 'rejected', label: 'Rejected' },
   ];
@@ -12,11 +12,11 @@ function StatusTabs({ activeFilter, onFilterChange, counts }) {
     <div className="status-tabs">
       {tabs.map((tab) => (
         <button
-          key={tab.id}
-          className={`status-tab ${activeFilter === tab.id ? 'active' : ''}`}
-          onClick={() => onFilterChange(tab.id)}
+          key={tab?.id}
+          className={`status-tab ${activeFilter === tab?.id ? 'active' : ''}`}
+          onClick={() => onFilterChange(tab?.id)}
         >
-          {tab.label}
+          {tab?.label}
         </button>
       ))}
     </div>

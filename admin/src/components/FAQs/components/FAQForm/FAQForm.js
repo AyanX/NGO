@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Button from '../Button/Button';
 import { categories } from '../../api/api.js';
 import './FAQForm.scss';
+import { Save } from 'lucide-react';
 
 const MAX_ANSWER_LENGTH = 500;
 
@@ -17,9 +18,9 @@ const FAQForm = ({ initialData = null, onSubmit, onCancel, mode = 'add' }) => {
   useEffect(() => {
     if (initialData) {
       setFormData({
-        category: initialData.category || 'General',
-        question: initialData.question || '',
-        answer: initialData.answer || ''
+        category: initialData?.category || 'General',
+        question: initialData?.question || '',
+        answer: initialData?.answer || ''
       });
     }
   }, [initialData]);
@@ -36,9 +37,7 @@ const FAQForm = ({ initialData = null, onSubmit, onCancel, mode = 'add' }) => {
 
     if (!formData.question.trim() || !formData.answer.trim()) {
       return;
-    }
-
-    setIsSubmitting(true);
+    }setIsSubmitting(true);
     try {
       await onSubmit(formData);
       if (mode === 'add') {
@@ -83,7 +82,7 @@ const FAQForm = ({ initialData = null, onSubmit, onCancel, mode = 'add' }) => {
           onChange={(e) => handleChange('category', e.target.value)}
         >
           {categories.map(cat => (
-            <option key={cat} value={cat}>{cat}</option>
+            <option key={cat}  value={cat}>{cat}</option>
           ))}
         </select>
       </div>
@@ -118,7 +117,7 @@ const FAQForm = ({ initialData = null, onSubmit, onCancel, mode = 'add' }) => {
           type="submit"
           variant="primary"
           disabled={!isFormValid || isSubmitting}
-          icon="💾"
+          icon={<Save />}
         >
           {mode === 'edit' ? 'Update FAQ' : 'Save FAQ'}
         </Button>

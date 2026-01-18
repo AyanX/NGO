@@ -4,6 +4,8 @@ import MessageDetail from "./MessageDetail/MessageDetail";
 import "./Messages.scss";
 import { sectionHeading } from "../utils/utils";
 import { useMessages } from "../utils/useMessagesHook";
+import axios from "axios";
+import Loader from "../utils/Loader";
 
 function Messages() {
   const { data, loading, error } = useMessages();
@@ -37,15 +39,18 @@ function Messages() {
     return messages.find((msg) => msg.id === selectedId);
   }, [messages, selectedId]);
 
+
+  const api= process.env.REACT_APP_API_URL
+
+
+
   const handleMessageClick = useCallback(async (message) => {
     setSelectedId(message.id);
     setMobileView("detail");
 
     if (!message.read) {
       try {
-        await fetch(`http://localhost:5000/messages/read/${message.id}`, {
-          method: "PATCH",
-        });
+        await axios.patch(`${api }/messages/read/${message.id}`)
 
         setMessages((prev) =>
           prev.map((msg) =>
@@ -56,16 +61,14 @@ function Messages() {
         console.error("Error marking message as read:", error);
       }
     }
-  }, []);
+  }, [api]);
 
   const handleDelete = useCallback(
     async (id) => {
       setDeletingIds((prev) => new Set(prev).add(id));
 
       try {
-        await fetch(`http://localhost:5000/messages/delete/${id}`, {
-          method: "PATCH",
-        });
+        await axios.delete(`${api}/messages/delete/${id}`)
 
         setTimeout(() => {
           setMessages((prev) => prev.filter((msg) => msg.id !== id));
@@ -89,16 +92,14 @@ function Messages() {
         });
       }
     },
-    [selectedId]
+    [selectedId,api]
   );
 
   const handleMarkAsRead = useCallback(async (id, currentReadState) => {
     const newReadState = !currentReadState;
 
     try {
-      await fetch(`http://localhost:5000/messages/read/${id}`, {
-        method: "PATCH",
-      });
+      await axios.patch(`${api }/messages/read/${id}`)
 
       setMessages((prev) =>
         prev.map((msg) =>
@@ -108,7 +109,7 @@ function Messages() {
     } catch (error) {
       console.error("Error toggling read state:", error);
     }
-  }, []);
+  }, [api]);
 
   const handleBack = useCallback(() => {
     setMobileView(null);
@@ -131,16 +132,14 @@ function Messages() {
     setMessages(normalized);
   }, [data]);
 
-  if (error) {
-    return <div>Error loading messages...</div>;
-  }
 
-  if (loading) {
-    return <div>Loading messages...</div>;
+
+  if (loading || !messages || error) {
+    return <Loader height="80vh"/>;
   }
 
   return (
-    <div style={{height:"100%", }}>
+    <div style={{height:"100%" }}>
       <div className="messages-intro">
         {sectionHeading("Messages", subHeading)}
         <div className="filter-buttons">
