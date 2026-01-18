@@ -2,6 +2,7 @@ import { memo } from "react";
 import { useVolunteerForm } from "./useVolunteerForm";
 import "./VolunteerForm.scss";
 import Wrapper from "../../../Assets/utils/Wrapper";
+import { smallHeader } from "../../../Assets/utils/utils";
 
 const VolunteerForm2 = () => {
   const { formData, loading, error, success, handleChange, submitForm } =
@@ -10,10 +11,9 @@ const VolunteerForm2 = () => {
   if (!formData) return null;
 
   return (
-    <section className="volunteer-wrapper">
+    <section className="volunteer-wrapper" id="volunteer">
       <div className="volunteer-form">
-        <h2>Volunteer Application</h2>
-
+      {smallHeader("Volunteer With Us", "Get Involved")}
         {error && <p className="error">{error}</p>}
         {success && (
           <p className="success">Thank you! Your application was submitted.</p>

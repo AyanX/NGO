@@ -89,7 +89,7 @@ function ContactForm() {
   return (
     <>
       
-      <div className="form-header">
+      <div className="form-header"  id="contact">
         {smallHeader("Get In touch", "Contact Us")}
       </div>
       <div className="contact-form-container">

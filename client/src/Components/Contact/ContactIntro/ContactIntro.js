@@ -1,8 +1,18 @@
 import React from "react";
 import "./ContactIntro.scss";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, ArrowRight ,MessageSquare ,PhoneCall } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  ArrowRight,
+  MessageSquare,
+  PhoneCall,
+} from "lucide-react";
 import useContacts from "../../../Assets/utils/useContacts";
+
+import customercare from "../../../Assets/customer-service.png";
+
 const barVariants = {
   hidden: { opacity: 0, y: 10 },
   visible: (i) => ({
@@ -52,7 +62,14 @@ const ContactIntro = () => {
       <div className="contact__content">
         {/* LEFT */}
         <div className="contact__left">
-          <span className="contact__badge">🎧 We're Here to Help</span>
+          <span className="contact__badge">
+            <img
+              src={customercare}
+              alt="Customer Care"
+              className="customer-care-icon"
+            />
+            We're Here to Help
+          </span>
 
           <h1>
             Let's Connect & <br />
@@ -70,9 +87,13 @@ const ContactIntro = () => {
               href={`mailto:${email || "email address"}`}
               className="btn primary"
             >
-              <button className="btn primary"><MessageSquare size={16}/> Send Message</button>
+              <button className="btn primary">
+                <MessageSquare size={16} /> Send Message
+              </button>
             </a>
-            <button className="btn outline"><PhoneCall size={16} color="var(  --blue-color)"/> Call Us Now</button>
+            <button className="btn outline">
+              <PhoneCall size={16} color="var(  --blue-color)" /> Call Us Now
+            </button>
           </div>
         </div>
 

@@ -3,6 +3,7 @@ import { Utensils, Users } from "lucide-react";
 import "./MissionSection.scss";
 import Wrapper from "../../../Assets/utils/Wrapper";
 import africaThumbnail from  "../../../Assets/thumbs/africa-thumbnail.webp"
+import { smallHeader } from "../../../Assets/utils/utils";
 
 const africaImageLink= "https://ik.imagekit.io/nal7vhb1y/NGO/africa.png"
 
@@ -21,10 +22,10 @@ const Mission = () => {
 
           <h2 className="mission__title">What We Do</h2>
 
-          <h3 className="mission__subtitle">
+          <p className="mission__subtitle">
             Uncle Tusitime Dream Destiny Helpers Foundation Expands Community
             Empowerment Efforts
-          </h3>
+          </p>
 
           <p>
             The <strong>Affordable Meals for Urban Hustlers</strong> program is

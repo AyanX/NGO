@@ -71,7 +71,7 @@ const Homepage = () => {
 
       {/* 4. Conditionally render with Suspense */}
       {hasReachedMission && (
-        <Suspense fallback={<div className="loader">Loading Programs...</div>}>
+        <Suspense fallback={<div className="loader">loading... </div>}>
           <Programs />
         </Suspense>
       )}

@@ -1,4 +1,3 @@
-
 import "./App.scss";
 import Navbar from "./Components/NavBar/NavBar";
 import HomePage from "./Components/HomePage/HomePage";
@@ -13,15 +12,14 @@ import Footer from "./Components/Footer/Footer";
 import About from "./Components/About/About";
 import Volunteer from "./Components/Volunteer/Volunteer";
 import Contact from "./Components/Contact/Contact";
-
-
+import Error404 from "./Components/Error/Error404";
 
 function App() {
   const Layout = () => {
     return (
       <>
         <Navbar />
-        <div style={{marginTop:"100px"}}>
+        <div style={{ marginTop: "100px" }}>
           <Outlet />
         </div>
         <Footer />
@@ -38,6 +36,7 @@ function App() {
           <Route path="volunteer" element={<Volunteer />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
+        <Route path="*" element={<Error404 />} />
       </>
     )
   );

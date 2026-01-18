@@ -17,12 +17,11 @@ const INITIAL_STATE = {
 
 export const useVolunteerForm = () => {
   const [formData, setFormData] = useState(INITIAL_STATE);
-  const [step, setStep] = useState(1);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
-  // Handles text + checkbox inputs safely
   const handleChange = useCallback((e) => {
     const { name, value, type, checked } = e.target;
 
@@ -30,14 +29,6 @@ export const useVolunteerForm = () => {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
-  }, []);
-
-  const nextStep = useCallback(() => {
-    setStep(2);
-  }, []);
-
-  const prevStep = useCallback(() => {
-    setStep(1);
   }, []);
 
   const submitForm = useCallback(async () => {
@@ -50,13 +41,9 @@ export const useVolunteerForm = () => {
     setError(null);
 
     try {
-      await axios.post(
-        `${process.env.REACT_APP_API_URL}/volunteers`,
-        formData
-      );
+      await axios.post(`${process.env.REACT_APP_API_URL}/volunteers`, formData);
       setSuccess(true);
       setFormData(INITIAL_STATE);
-      setStep(1);
     } catch {
       setError("Failed to submit volunteer application.");
     } finally {
@@ -66,13 +53,10 @@ export const useVolunteerForm = () => {
 
   return {
     formData,
-    step,
     loading,
     error,
     success,
     handleChange,
-    nextStep,
-    prevStep,
     submitForm,
   };
 };

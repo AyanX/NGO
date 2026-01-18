@@ -1,0 +1,144 @@
+
+$bg-color: #0e2a47;
+$card-bg: rgba(255, 255, 255, 0.08);
+$card-border: rgba(255, 255, 255, 0.12);
+
+$primary: #ff5a2f;
+$text-white: #ffffff;
+$text-muted: rgba(255, 255, 255, 0.7);
+$text-light: rgba(255, 255, 255, 0.55);
+
+$radius-lg: 18px;
+$radius-md: 12px;
+
+$blur: blur(20px);
+
+
+.error-page {
+  min-height: 100vh;
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 255, 255, 0.06),
+      transparent 60%
+    ),
+    $bg-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+
+  .error-card {
+    max-width: 620px;
+    width: 100%;
+    background: $card-bg;
+    backdrop-filter: $blur;
+    border: 1px solid $card-border;
+    border-radius: $radius-lg;
+    font-family: var(--ubuntu);
+    padding: 3rem 2.5rem;
+
+    .brand {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: $primary;
+      margin-bottom: 0.4rem;
+    }
+
+    .code {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: $primary;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      color: $text-white;
+      font-family: var(--poppins);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: $text-muted;
+      line-height: 1.7;
+      margin-bottom: 2.2rem;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+
+      .primary-btn {
+        background: $primary;
+        color: #fff;
+        border: none;
+        padding: 0.85rem 1.8rem;
+        border-radius: $radius-md;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+        gap: 5px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 8px 20px rgba(255, 90, 47, 0.4);
+        }
+      }
+
+      .link-btn {
+        background: transparent;
+        border: none;
+        color: $text-light;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        cursor: pointer;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $text-white;
+        }
+      }
+    }
+  }
+
+  .support-text {
+    margin-top: 1.8rem;
+    font-size: 0.8rem;
+    color: $text-light;
+
+    a {
+      color: $text-muted;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .error-page {
+    .error-card {
+      padding: 2.2rem 1.6rem;
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+}

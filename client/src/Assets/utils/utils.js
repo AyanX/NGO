@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const cardVariants = {
   hidden: {
@@ -19,8 +20,10 @@ const cardVariants = {
 export const involveCards = (data, linkColor, bg = "") =>
   data.map((item, index) => {
     const emailLink = !item.toEmail ? item?.link?.toUpperCase() : item?.link;
-
     const cardBgColor = item?.bg || bg;
+
+    const isLink = item.hashLink && !item.to;
+
     return (
       <motion.div
         style={{ backgroundColor: cardBgColor }}
@@ -36,7 +39,7 @@ export const involveCards = (data, linkColor, bg = "") =>
         </div>
         <h3>{item?.title}</h3>
         <p>{item?.content}</p>
-        {item?.link && (
+        {!isLink ? (
           <Link
             style={{ color: linkColor }}
             to={item.to}
@@ -45,6 +48,16 @@ export const involveCards = (data, linkColor, bg = "") =>
             {emailLink}
             <span> {item.link && "→"}</span>
           </Link>
+        ) : (
+          <HashLink
+            style={{ color: linkColor }}
+            to={item.hashLink}
+            className="action-card__link"
+            smooth
+            scroll={(el) => el.scrollIntoView({ behavior: "smooth" })}
+          >
+            {emailLink}
+          </HashLink>
         )}
       </motion.div>
     );

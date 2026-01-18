@@ -31,15 +31,15 @@ const InvolveData = [
     logo:<Users size={28} />,
     title:"Join Us Now",
     content:"Become a member of our community and help drive positive change.",
-    to:"#",
     link:"BECOME A MEMBER",
+    hashLink:"/contact/#contact"
   },
   {
     logo:<Rocket size={28} />,
     title:"Get Involved",
     content:"Volunteer your time and skills to make a tangible difference.",
-    to:"#",
     link:"START VOLUNTEERING",
+    hashLink:"/volunteer/#volunteer"
   }
 ]
 

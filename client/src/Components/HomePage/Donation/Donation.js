@@ -19,15 +19,16 @@ const DonationData = [
     logo:<Users color='var(--secondary-color)' size={32} />,
     title:"Volunteer with Us",
     content:"Volunteering with us helps transform communities and lives. Join us in making a difference today.",
-    to:"#",
-    link:"Volunteer with Us"
+    link:"Volunteer with Us",
+    hashLink:"/volunteer/#volunteer"
   },
   {
     logo:<GraduationCap color='var(--secondary-color)' size={32} />,
     title:"Give Scholarship",
     content:"Give scholarships to less privileged youth and women in higher institutions. Your support can change lives.",
-    to:"#",
-    link:"Give SCholarship"
+ 
+    link:"Give SCholarship",
+      hashLink :"/volunteer/#volunteer",
   },
 ]
 
