@@ -13,7 +13,6 @@ const ContactOptionsComponent = () => {
       title: "Visit Us",
       content: location || "location",
       to: "#",
-      link: "Get Directions",
 
       IconBgColor: "var(--secondary-color)",
       bg: "var(--dark-blue)",
@@ -23,7 +22,6 @@ const ContactOptionsComponent = () => {
       title: "Call Us",
       content: phone || "phone number",
       to: "#",
-      link: "Call Now",
       IconBgColor: "var(--blue-color)",
       bg: "var(--darker-gray)",
     },

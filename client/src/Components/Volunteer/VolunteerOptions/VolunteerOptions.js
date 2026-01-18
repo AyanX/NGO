@@ -12,7 +12,6 @@ const volunteerOptions = [
     title: "Volunteer Remotely",
     content: "Contribute from anywhere in the world",
     to: "#",
-    link: "Explore Opportunities",
     
     IconBgColor: "var(--secondary-color)",
     bg:"var(--dark-blue)"
@@ -22,7 +21,6 @@ const volunteerOptions = [
     title: "Volunteer in Your Own City",
     content: "Make an impact in your local community",
     to: "#",
-    link: "Explore Opportunities",
     IconBgColor: "var(--blue-color)",
     bg:"var(--darker-gray)"
   },
@@ -31,7 +29,6 @@ const volunteerOptions = [
     title: "Volunteer Online",
     content: "Use your digital skills to help",
     to: "#",
-    link: "Explore Opportunities",
     IconBgColor: "var(--secondary-color)",
     bg:"var(--dark-blue)",
   },

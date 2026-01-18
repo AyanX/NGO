@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import "./Hero.scss";
 
 const AUTO_SLIDE_INTERVAL = 4000;
@@ -110,8 +112,8 @@ const Hero = ({ heroData }) => {
             <p>{current.subtitle}</p>
 
             <div className="hero-buttons">
-              <button className="primary">Register Today</button>
-              <button className="secondary">Learn More →</button>
+              <HashLink smooth to="/contact/#contact"><button className="primary">Register Today</button></HashLink>
+              <Link to="/about"><button className="secondary">Learn More →</button></Link>
             </div>
           </motion.div>
         </motion.div>

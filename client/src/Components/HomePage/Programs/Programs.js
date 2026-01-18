@@ -86,7 +86,7 @@ const ProgramsSection = () => {
       {programs.map(
         (item) =>
           item.id === curr && (
-            <div className="programs__top">
+            <div className="programs__top" key={item.id}>
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -133,7 +133,6 @@ const ProgramsSection = () => {
         {
           programs.map(
           (item) => {
-            console.log("Rendering item with id:", item.id, "Current id:", curr);
             return (
                item.id !== curr && (
               <motion.div

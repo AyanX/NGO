@@ -11,6 +11,7 @@ import {
   Briefcase,
   Scale,
 } from "lucide-react";
+import { smallHeader } from "../../../Assets/utils/utils";
 
 const goals = [
   { title: "No Poverty", icon: <HandCoins /> },
@@ -48,7 +49,8 @@ const itemVariants = {
 const SDGs = () => {
   return (
     <section className="sdgs">
-      <h2 className="sdgs__title">Sustainable Development Goals</h2>
+    {smallHeader("OUR GOALS", "Sustainable Development Goals")}
+
 
       <motion.div
         className="sdgs__grid"

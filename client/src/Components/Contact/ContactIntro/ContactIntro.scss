@@ -41,8 +41,13 @@
 
   &__badge {
     display: inline-block;
-    background: rgba(255, 165, 0, 0.15);
-    color: var(--orange);
+    background:var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 200px;
+    color: var(--background-color);
     padding: 0.5rem 1rem;
     border-radius: 999px;
     font-size: 0.85rem;
@@ -176,6 +181,9 @@
 @media (max-width: 400px) {
    .contact {
     height: calc(130vh - 100px);
+      .btn.outline{
+    padding: 0.8rem 1.6rem;
+  }
   }
   
 }
@@ -183,6 +191,7 @@
 @media (max-width: 350px) {
    .contact {
     height: calc(140vh - 100px);
+
   }
-  
+
 }
