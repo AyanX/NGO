@@ -1,0 +1,105 @@
+
+$bg: #052b45;
+$card: #06385b;
+$input-bg: #072f4a;
+$border: #0b4a73;
+$text: #e6f1f7;
+$muted: #9bb7c9;
+$primary: #ff4d0a;
+$error: #ff6b6b;
+$radius: 16px;
+
+.update-credentials {
+  max-width: 560px;
+  padding: 2rem;
+  color: $text;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    font-size: 0.85rem;
+    color: $muted;
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+
+  .input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    border-radius: 999px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid transparent;
+
+    &:focus-within {
+      border-color: $border;
+    }
+
+    svg {
+      color: $muted;
+    }
+
+    input {
+      flex: 1;
+      background: transparent;
+      border: 1px solid white;
+      outline: none;
+      color: $text;
+      padding: 0 0.6rem;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      color: $muted;
+      cursor: pointer;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .error {
+    color: $error;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    margin-top: 1rem;
+    background: $primary;
+    border: none;
+    color: white;
+    padding: 0.9rem;
+    border-radius: 999px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+}
+
+@media (max-width: 600px) {
+  .update-credentials {
+    padding: 1.5rem;
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

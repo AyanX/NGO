@@ -55,7 +55,7 @@ function ContactForm() {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000", formData, {
+      await axios.post("http://localhost:5000", formData, {
         headers: {
           "Content-Type": "application/json",
         },

@@ -69,9 +69,9 @@ const ContactForm = () => {
         onChange={(e) => setForm({ ...form, location: e.target.value })}
       />
 
-      <button disabled={loading} onClick={handleSubmit}>
+      <button disabled={loading && form.email !== "-"} onClick={handleSubmit}>
         <Save />
-        {loading ? "Saving..." : "Save Contact Info"}
+        {loading && form.email !== "-" ? "Saving..." : "Save Contact Info"}
       </button>
     </div>
   );

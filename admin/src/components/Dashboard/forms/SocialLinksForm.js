@@ -68,9 +68,9 @@ const SocialLinksForm = () => {
         onChange={(e) => setLinks({ ...links, instagram: e.target.value })}
       />
 
-      <button disabled={loading} onClick={submit}>
+      <button disabled={loading && links.facebook !== "-"} onClick={submit}>
         <Save />
-        {loading ? "Saving..." : "Save Social Links"}
+        {loading && links.facebook !== "-" ? "Saving..." : "Save Social Links"}
       </button>
     </div>
   );

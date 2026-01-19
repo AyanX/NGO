@@ -15,7 +15,7 @@ const AdminLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const API = process.env.REACT_APP_API_URL;
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -64,7 +64,7 @@ const AdminLogin = () => {
       const csrfToken = getCsrfToken();
 
       const res = await axios.post(
-        "http://localhost:5000/adm/login",
+        `${API}/adm/login`,
         formData,
         {
           headers: {

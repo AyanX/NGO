@@ -1,0 +1,36 @@
+RewriteEngine On
+
+AddType image/x-icon .ico
+
+<IfModule mod_deflate.c>
+  <FilesMatch "\.(ico)$">
+    SetEnv no-gzip
+  </FilesMatch>
+</IfModule>
+
+<IfModule LiteSpeed>
+  DisablePush favicon.ico
+</IfModule>
+
+<Files "favicon.ico">
+  Header set Content-Type "image/x-icon"
+  Header set Cache-Control "public, max-age=31536000"
+</Files>
+
+
+# 🔒 Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 🌐 Force non-www (optional but recommended)
+RewriteCond %{HTTP_HOST} ^www\.uncletboxingacademy\.com [NC]
+RewriteRule ^ https://uncletboxingacademy.com%{REQUEST_URI} [L,R=301]
+
+# ⚛️ React Router handling
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+

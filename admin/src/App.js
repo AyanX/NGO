@@ -12,6 +12,7 @@ import VolunteerDashboard from "./components/Volunteer/VolunteerDashboard/Volunt
 import FAQs from "./components/FAQs/FAQs";
 import AdminLogin from "./components/Login/Login";
 import Error404 from "./components/Error/Error404";
+import Settings from "./components/Settings/Settings";
 function App() {
   const routes = createBrowserRouter(
     createRoutesFromElements(
@@ -21,6 +22,7 @@ function App() {
         <Route path="volunteer-applications" element={<VolunteerDashboard/>} />
         <Route path="faqs" element={<FAQs />} />
         <Route path="login" element={<AdminLogin />} />
+        <Route path="settings" element={<Settings />} />
         <Route path="*" element={<Error404 />} />
       </Route>
     )

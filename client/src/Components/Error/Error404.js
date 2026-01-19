@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import "./Error404.scss";
-import { ArrowRight, House } from "lucide-react";
+import { House } from "lucide-react";
 
 const Error404 = () => {
   return (

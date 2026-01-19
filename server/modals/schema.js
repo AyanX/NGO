@@ -67,7 +67,14 @@ const volunteersTable = mysqlTable("volunteers", {
     .defaultNow(),
 });
 
+const adminTable = mysqlTable("admin", {
+  id: serial("id").primaryKey(),
+  email: varchar("email", { length: 255 }).notNull().unique(),
+  password: varchar("password", { length: 255 }).notNull(),
+});
+
 module.exports = {
+  adminTable,
   contactsTable,
   messagesTable,
   socialsTable,

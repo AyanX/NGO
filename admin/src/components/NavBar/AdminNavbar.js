@@ -9,6 +9,7 @@ import {
   Menu,
   X,
   UserCog,
+  Settings,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./AdminNavbar.scss";
@@ -18,6 +19,7 @@ const navLinks = [
   { label: "Messages", icon: Mail, to: "/messages" },
   { label: "Volunteers", icon: Users, to: "/volunteer-applications" },
   { label: "FAQs", icon: MessageSquare, to: "/faqs" },
+  { label: "Settings", icon: Settings, to: "/settings" },
   { label: "Exit", icon: LogOut, to: "#" },
 ];
 
