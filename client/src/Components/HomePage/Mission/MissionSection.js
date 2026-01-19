@@ -2,13 +2,9 @@ import React, { useState } from "react";
 import { Utensils, Users } from "lucide-react";
 import "./MissionSection.scss";
 import Wrapper from "../../../Assets/utils/Wrapper";
-import africaThumbnail from  "../../../Assets/thumbs/africa-thumbnail.webp"
-import { smallHeader } from "../../../Assets/utils/utils";
+import africaThumbnail from "../../../Assets/thumbs/africa-thumbnail.webp";
 
-const africaImageLink= "https://ik.imagekit.io/nal7vhb1y/NGO/africa.png"
-
-
-
+const africaImageLink = "https://ik.imagekit.io/nal7vhb1y/NGO/africa.png";
 
 const Mission = () => {
   const [loaded, setLoaded] = useState(false);
@@ -40,8 +36,6 @@ const Mission = () => {
           </p>
 
           <div className="mission__stats">
-            
-
             <div className="stat">
               <Users size={28} />
               <div>
@@ -52,9 +46,7 @@ const Mission = () => {
           </div>
         </div>
 
-        {/*right side */}
         <div className="mission__image">
-          {/* Thumbnail*/}
           <img
             src={africaThumbnail}
             alt=""
@@ -72,12 +64,12 @@ const Mission = () => {
           />
 
           <div className="stat">
-              <Utensils size={28} />
-              <div    >
-                <h4   style={{color:"white"}} >15K+</h4>
-                <span        style={{color:"white"}} >Meals Served</span>
-              </div>
+            <Utensils size={28} />
+            <div>
+              <h4 style={{ color: "white" }}>15K+</h4>
+              <span style={{ color: "white" }}>Meals Served</span>
             </div>
+          </div>
         </div>
       </div>
     </section>

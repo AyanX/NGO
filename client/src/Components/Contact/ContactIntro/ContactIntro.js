@@ -86,13 +86,13 @@ const ContactIntro = () => {
             <a
             
               href={`mailto:${email || "email address"}`}
-              className="btn primary"
+              className="btn-contact primary"
             >
-              <button className="btn primary">
+              <button className="btn-contact primary">
                 <MessageSquare size={16} /> Send Message
               </button>
             </a>
-            <button className="btn outline">
+            <button className="btn-contact outline">
               <PhoneCall size={16} color="var(--orange)" /> Call Us Now
             </button>
           </div>

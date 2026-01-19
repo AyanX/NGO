@@ -1,5 +1,4 @@
-import { TextWrap } from 'lucide-react';
-import React from 'react'
+
 import Wrapper from '../../../Assets/utils/Wrapper';
 import { DonationCards } from '../../HomePage/Donation/Donation';
 import { Globe, Flag, Monitor } from 'lucide-react';

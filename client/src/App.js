@@ -8,6 +8,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Footer from "./Components/Footer/Footer";
 import About from "./Components/About/About";
 import Volunteer from "./Components/Volunteer/Volunteer";
@@ -43,7 +44,9 @@ function App() {
 
   return (
     <div className="App">
+    <HelmetProvider>
       <RouterProvider router={routes} />
+      </HelmetProvider>
     </div>
   );
 }

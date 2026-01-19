@@ -3,6 +3,7 @@ import AboutIntro from "./AboutIntro/AboutIntro";
 import CoreValues from "./CoreValues/CoreValues";
 import Timeline from "./Timeline/Timeline";
 import food from "../../Assets/food.webp";
+import { aboutPageHelmet } from "../../helmet";
 
 const About = () => {
   const aboutHeroDetails = {
@@ -14,6 +15,7 @@ const About = () => {
 
   return (
     <div>
+    {aboutPageHelmet()}
       <VolunteerHero bg={aboutHeroDetails.bg} title={aboutHeroDetails.title} description={aboutHeroDetails.description} buttonText={aboutHeroDetails.buttonText}/>
       <AboutIntro />
       <CoreValues />

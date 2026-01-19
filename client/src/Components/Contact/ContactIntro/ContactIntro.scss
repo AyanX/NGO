@@ -80,7 +80,7 @@
    
   }
 
-  .btn {
+  .btn-contact {
     padding: 0.4rem 1.2rem;
     border-radius: 10px;
     font-size: 0.95rem;
@@ -100,6 +100,10 @@
       background: transparent;
       border: 1px solid rgba(255, 255, 255, 0.4);
       color: var(--light);
+
+      @media (max-width: 410px) {
+        padding: 0.8rem 1.2rem;
+      }
     }
   }
 
@@ -170,7 +174,7 @@
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .contact {
-    height: calc(120vh - 100px);
+    height: calc(140vh - 100px);
   }
   .contact__content {
     grid-template-columns: 1fr;
@@ -184,7 +188,7 @@
 }
 @media (max-width: 400px) {
    .contact {
-    height: calc(130vh - 100px);
+    height: calc(140vh - 100px);
       .btn.outline{
     padding: 0.8rem 1.6rem;
   }
@@ -194,7 +198,7 @@
 
 @media (max-width: 350px) {
    .contact {
-    height: calc(140vh - 100px);
+    height: calc(150vh - 100px);
 
   }
 

@@ -5,6 +5,7 @@ import logo from "../../Assets/logo.png";
 import { Link } from "react-router";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import ThemeToggle from "../Theme/Theme";
+import { homePageHelmet } from "../../helmet";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,12 +30,13 @@ function Navbar() {
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "About Us", href: "about" },
-    { label: "volunteer", href: "volunteer" },
-    { label: "Impact", href: "#impact" },
+    { label: "Volunteer", href: "volunteer" },
     { label: "Contact", href: "/contact" },
   ];
 
   return (
+    <>
+    {homePageHelmet()}
     <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
       <motion.nav
         layout
@@ -124,6 +126,7 @@ function Navbar() {
         </div>
       </motion.nav>
     </div>
+    </>
   );
 }
 

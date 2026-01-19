@@ -101,13 +101,6 @@
     display: none;
   }
 
-
-
-
-
-
-
-
   @media screen and (max-width: 1024px) {
     .navbar-container {
       padding: 0 1.5rem;
@@ -128,6 +121,7 @@
     }
     .navbar-burger {
     display: block;
+    
     }
 
 
@@ -145,7 +139,7 @@
       top: 100px;
       left: 0;
       right: 0;
-      background-color: var(--background-color);
+      background-color: var(--primary-color);
       flex-direction: column;
       align-items: stretch;
       margin-left: 0;
@@ -172,7 +166,8 @@
         font-size: 1rem;
         font-weight: 400;
         border-radius: 5px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--background-color);
+        border-bottom: 1px solid #545151;
 
         &:last-child {
           border-bottom: none;

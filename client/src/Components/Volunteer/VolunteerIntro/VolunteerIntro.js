@@ -1,5 +1,4 @@
 import "./VolunteerIntro.scss";
-import Wrapper from "../../../Assets/utils/Wrapper";
 import { motion } from "framer-motion";
 
 

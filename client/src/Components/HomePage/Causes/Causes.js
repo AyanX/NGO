@@ -5,6 +5,10 @@ import "./Causes.scss";
 import Wrapper from "../../../Assets/utils/Wrapper";
 import { smallHeader } from "../../../Assets/utils/utils";
 
+import education from "../../../Assets/education.webp";
+import water from "../../../Assets/water.webp";
+import hunger from "../../../Assets/food.webp";
+
 const causes = [
   {
     id: 1,
@@ -12,7 +16,7 @@ const causes = [
     title: "Clean Water",
     raised: 12847,
     goal: 20000,
-    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
+    image: water,
   },
   {
     id: 2,
@@ -20,15 +24,15 @@ const causes = [
     title: "Education for All",
     raised: 18234,
     goal: 25000,
-    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
+    image: education,
   },
   {
     id: 3,
-    tag: "Emergency",
-    title: "Emergency Relief",
+    tag: "Food & Hunger",
+    title: "Feed the Hungry",
     raised: 9567,
     goal: 15000,
-    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
+    image: hunger,
   },
 ];
 
