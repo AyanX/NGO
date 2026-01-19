@@ -8,29 +8,29 @@ import { Globe, Flag, Monitor } from 'lucide-react';
 
 const volunteerOptions = [
   {
-    logo: <Globe color="var(--primary-color)" size={32} />,
+    logo: <Globe color="white" size={32} />,
     title: "Volunteer Remotely",
     content: "Contribute from anywhere in the world",
     to: "#",
     
     IconBgColor: "var(--secondary-color)",
-    bg:"var(--dark-blue)"
+    bg:"var( --black-to-white)"
   },
   {
-    logo: <Flag color="var(--primary-color)" size={32} />,
+    logo: <Flag color="white" size={32} />,
     title: "Volunteer in Your Own City",
     content: "Make an impact in your local community",
     to: "#",
     IconBgColor: "var(--blue-color)",
-    bg:"var(--darker-gray)"
+    bg:"var( --black-to-white)"
   },
   {
-    logo: <Monitor color="var(--primary-color)" size={32} />,
+    logo: <Monitor color="white" size={32} />,
     title: "Volunteer Online",
     content: "Use your digital skills to help",
     to: "#",
     IconBgColor: "var(--secondary-color)",
-    bg:"var(--dark-blue)",
+    bg:"var( --black-to-white)",
   },
 ];
 

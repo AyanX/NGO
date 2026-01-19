@@ -154,7 +154,7 @@ const ProgramsSection = () => {
 };
 
 const Programs = () => {
-  return <Wrapper component={<ProgramsSection />} bg="var(--gray-bg)" />;
+  return <Wrapper component={<ProgramsSection />} bg="var(--dark-text)" />;
 };
 
 export default Programs;

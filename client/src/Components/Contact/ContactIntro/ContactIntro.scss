@@ -57,6 +57,7 @@
   h1 {
     font-size: clamp(2.2rem, 4vw, 3.5rem);
     line-height: 1.1;
+    color: var(--background-color);
 
     span {
       background: linear-gradient(90deg, var(--orange), #00e5ff);
@@ -132,15 +133,18 @@
 
     h3 {
       font-size: 1.1rem;
+      color: white;
       margin-bottom: 0.2rem;
     }
 
     p {
       margin: 0;
       font-weight: 500;
+       
     }
 
     span {
+      color: white;
       font-size: 0.85rem;
       opacity: 0.8;
     }

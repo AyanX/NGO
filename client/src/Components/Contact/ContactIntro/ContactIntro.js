@@ -84,6 +84,7 @@ const ContactIntro = () => {
 
           <div className="contact__actions">
             <a
+            
               href={`mailto:${email || "email address"}`}
               className="btn primary"
             >
@@ -92,7 +93,7 @@ const ContactIntro = () => {
               </button>
             </a>
             <button className="btn outline">
-              <PhoneCall size={16} color="var(  --blue-color)" /> Call Us Now
+              <PhoneCall size={16} color="var(--orange)" /> Call Us Now
             </button>
           </div>
         </div>
@@ -112,7 +113,7 @@ const ContactIntro = () => {
 
               <div className="info">
                 <h3>{item.title}</h3>
-                <p>{item.text}</p>
+                <p    style={{color:"white"}}>{item.text}</p>
                 <span>{item.sub}</span>
               </div>
 

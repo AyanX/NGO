@@ -85,7 +85,7 @@ const Mission = () => {
 };
 
 const MissionSection = () => {
-  return <Wrapper component={<Mission />} bg="var(--gray-bg)" />;
+  return <Wrapper component={<Mission />} bg="var(--black-to-white)" />;
 };
 
 export default MissionSection;

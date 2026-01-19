@@ -31,10 +31,10 @@ export default function CausesCard({ data }) {
 
         <div className="amounts">
           <span>
-            Raised: <strong style={{color:"var(--background-color)", fontWeight:"bold"}}  >${data.raised.toLocaleString()}</strong>
+            Raised: <strong style={{color:"var(--darker-gray)", fontWeight:"bold"}}  >${data.raised.toLocaleString()}</strong>
           </span>
           <span>
-            Goal: <strong style={{color:"var(--background-color)", fontWeight:"bold"}} >${data.goal.toLocaleString()}</strong>
+            Goal: <strong style={{color:"var(--darker-gray)", fontWeight:"bold"}} >${data.goal.toLocaleString()}</strong>
           </span>
         </div>
 

@@ -97,6 +97,17 @@
     }
   }
 
+  .toggle-them-nav{
+    display: none;
+  }
+
+
+
+
+
+
+
+
   @media screen and (max-width: 1024px) {
     .navbar-container {
       padding: 0 1.5rem;
@@ -116,7 +127,17 @@
       width: 100%;
     }
     .navbar-burger {
-      display: block;
+    display: block;
+    }
+
+
+    .toggle-them-nav{
+      display: flex;
+      justify-content:  center;
+      align-items: center;
+      width: 140px;
+      gap: 10px;
+      margin-left: auto;
     }
 
     .navbar-menu {

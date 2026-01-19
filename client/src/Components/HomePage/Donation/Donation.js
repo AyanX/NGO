@@ -63,7 +63,7 @@ const DonationSection = () => {
   return DonationCards(DonationData)}
 
 const Donation = () => {
-   return <Wrapper component={<DonationSection />}  bg="var(--dark-blue)"/>
+   return <Wrapper component={<DonationSection />}  bg="var( --blue-to-white)"/>
 }
 
 export default Donation

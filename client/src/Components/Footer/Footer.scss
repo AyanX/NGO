@@ -15,7 +15,7 @@
     font-size: 1.05rem;
     font-weight: 600;
     margin-bottom: 1.2rem;
-    color: var(--primary-color);
+    color: white;
   }
 
   a {
@@ -42,7 +42,7 @@
   &__description {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--footer-muted-color);
+    color: white;
     margin-bottom: 1.6rem;
   }
 
@@ -58,7 +58,7 @@
       justify-content: center;
       border-radius: 50%;
       background-color: var(--footer-icon-bg);
-      color: var(--primary-color);
+      color: white;
       transition: all 0.3s ease;
 
       &:hover {

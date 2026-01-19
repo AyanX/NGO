@@ -114,7 +114,9 @@ const VolunteerForm2 = () => {
                 onChange={handleChange}
                 required
               />
+               <p style={{color:"var(--primary-color)"}}> 
               I confirm the information provided is accurate
+              </p>
             </label>
 
             <label className="checkbox">
@@ -124,8 +126,9 @@ const VolunteerForm2 = () => {
                 checked={formData.agreeConduct}
                 onChange={handleChange}
                 required
+                
               />
-              I agree to the volunteer code of conduct
+             <p style={{color:"var(--primary-color)"}}> I agree to the volunteer code of conduct</p>
             </label>
           </div>
 
@@ -141,7 +144,7 @@ const VolunteerForm2 = () => {
 };
 
 const VolunteerForm = () => {
-  return <Wrapper component={<VolunteerForm2 />} />;
+  return <Wrapper component={<VolunteerForm2 />}  bg="var(--black-to-white)"/>;
 };
 
 export default memo(VolunteerForm);

@@ -14,7 +14,7 @@ import {
 import { smallHeader } from "../../../Assets/utils/utils";
 
 const goals = [
-  { title: "No Poverty", icon: <HandCoins /> },
+  { title: "No Poverty", icon: <HandCoins  /> },
   { title: "Zero Hunger", icon: <Utensils /> },
   { title: "Good Health", icon: <HeartPulse /> },
   { title: "Quality Education", icon: <BookOpen /> },

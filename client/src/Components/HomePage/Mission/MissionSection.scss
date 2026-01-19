@@ -29,7 +29,7 @@
 
   p {
     font-size: 1.2rem;
-    color: #d1d5db;
+    color: var(--mission-home-text)  ;
     margin-bottom: 1rem;
     font-family: "Inter", sans-serif;
     font-size: 18px;
@@ -55,7 +55,7 @@
 
     span {
       font-size: 0.8rem;
-      color: #9ca3af;
+     color: var(--mission-home-text)  ;
     }
   }
 
@@ -70,6 +70,10 @@
     border-radius: 12px;
     padding: 1rem;
     position: relative;
+
+    [data-theme="light"] & {
+      background:#020617;
+    }
 
     img {
       width: 100%;

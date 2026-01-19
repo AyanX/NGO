@@ -4,9 +4,11 @@
   --primary-color: #f9fafb;
   --secondary-color: rgb(249, 115, 22);
   --background-color: #000000ff;
+  --black-to-white:#1e2128b3;
   --blue-color: #2563eb;
   --text-color: #333333;
   --gray-bg: #1e2128b3;
+   --action-bg:#1e2128b3;
   --hero-background-color: #0054a880;
   --bright-blue: #2563eb;
   --dark-blue: #1e3a8a;
@@ -19,27 +21,31 @@
   --footer-bg: #0054a8ff;
   --ubuntu: "Ubuntu", sans-serif;
   --bulma-navbar-background-color: transparent;
+
+  --blue-to-white:#2563eb;
+  --mission-home-text:#d1d5db;
 }
 
-:root[data-theme="light"] {
+:root[data-theme="light"]             {
+
   /* ===== BRAND ===== */
-  --primary-color: #ffffff;
+  --primary-color:#000000ff;
   --secondary-color: #f97316; /* same orange */
   --bright-blue: #2563eb;
-  --blue-color: #2563eb;
+  --blue-color: #1e3a8a;
   --dark-blue: #1e3a8a;
-
+ --action-bg:#FFFFFF;
   /* ===== BACKGROUNDS ===== */
   --background-color: #f9fafb; /* page background */
   --light-dark-bg: #ffffff; /* cards / surfaces */
-  --gray-bg: #f1f5f9; /* soft sections */
+  --gray-bg: #FAFAFB; /* soft sections */
   --hero-background-color: #e0f2fe; /* hero overlay */
   --footer-bg: #0f172a; /* keep footer dark */
 
   /* ===== TEXT ===== */
   --text-color: #111827; /* primary text */
-  --dark-text: #020617; /* headings */
-  --darker-gray: #475569; /* muted text */
+  --dark-text: #d4daf3; /* headings */
+  --darker-gray: #000; /* muted text */
   --footer-text-color: #e5e7eb;
   --footer-muted-color: #94a3b8;
 
@@ -47,6 +53,12 @@
   --footer-icon-bg: rgba(255, 255, 255, 0.15);
   --ubuntu: "Ubuntu", sans-serif;
   --bulma-navbar-background-color: transparent;
+
+  --black-to-white:#e5e7eb;
+
+  --blue-to-white:#e5e7eb;
+
+  --mission-home-text:#000000;
 }
 
 * {
@@ -101,11 +113,8 @@
 
 //involve section homepage
 .action-card {
-  background: linear-gradient(
-    180deg,
-    rgba(30, 33, 40, 0.7),
-    rgba(30, 33, 40, 0.85)
-  );
+  background: var(--action-bg);
+  border: 1px solid var(--gray-bg);
   border-radius: 12px;
   padding: 2.5rem 1.2rem;
   text-align: center;
@@ -113,6 +122,7 @@
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   a {
     text-decoration: none;
   }
@@ -152,7 +162,6 @@
 
   p {
     line-height: 26px;
-    color: #cfd3da;
     margin-bottom: 1.5rem;
     font-family: "Inter"; /* Body */
     font-weight: 500;

@@ -2,7 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import "./Form.scss";
 import { smallHeader } from "../../../Assets/utils/utils";
-function ContactForm() {
+import Wrapper from "../../../Assets/utils/Wrapper"
+
+
+function ContactsFormInput() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -199,5 +202,10 @@ function ContactForm() {
     </>
   );
 }
+
+const ContactForm = ()=>{
+  return <Wrapper component={<ContactsFormInput/>} bg="var(--black-to-white)" />
+}
+
 
 export default ContactForm;

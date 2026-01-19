@@ -19,7 +19,7 @@
   }
 
   &__card {
-    background-color: var(--blue-color);
+    background-color: var(--blue-to-white);
     border-radius: 12px;
     padding: 2rem 1.5rem;
     display: flex;
@@ -32,6 +32,7 @@
     p {
       font-size: 0.95rem;
       font-weight: 500;
+      color: black
     }
   }
 

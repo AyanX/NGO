@@ -1,4 +1,3 @@
-
 import Hero from "./Hero/Hero";
 import water from "../../Assets/water.webp";
 import food from "../../Assets/food.webp";
@@ -45,21 +44,18 @@ const heroData = [
 ];
 
 const Homepage = () => {
-  
-
   return (
     <div>
       <Hero heroData={heroData} />
       <Involve />
 
-        <MissionSection />
-  
+      <MissionSection />
 
       <Vision />
 
-          <Programs />
-      <Donation/>
-      <Causes/>
+      <Programs />
+      <Donation />
+      <Causes />
     </div>
   );
 };
