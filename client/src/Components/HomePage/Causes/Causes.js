@@ -36,7 +36,7 @@ const containerVariants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
     },
   },
 };
@@ -50,8 +50,7 @@ function CausesCampaigns() {
       className="campaigns"
       variants={containerVariants}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
+      animate="show"
     >
       {causes.map((item) => (
         <CausesCard key={item.id} data={item} />

@@ -1,7 +1,6 @@
 import Wrapper from "../../../Assets/utils/Wrapper";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./Programs.scss";
@@ -87,18 +86,14 @@ const ProgramsSection = () => {
         (item) =>
           item.id === curr && (
             <div className="programs__top" key={item.id}>
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+              <div
                 className="programs__top-image"
               >
                 <img src={item.image} alt={item.title} />
                 {item.badge && <span className="badge">{item.badge}</span>}
-              </motion.div>
+              </div>
 
-              <motion.div
+              <div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -124,7 +119,7 @@ const ProgramsSection = () => {
                     {<ChevronRight />}
                   </button>
                 </div>
-              </motion.div>
+              </div>
             </div>
           )
       )}
@@ -135,12 +130,9 @@ const ProgramsSection = () => {
           (item) => {
             return (
                item.id !== curr && (
-              <motion.div
+              <div
                 key={item.id}
                 className="programs__card"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
               >
                 <div className="image-wrap">
                   <img src={item.image} alt={item.title} />
@@ -150,7 +142,7 @@ const ProgramsSection = () => {
                 <Link to="#" className={`btn ${item.btnColor}`}>
                   Read More
                 </Link>
-              </motion.div>
+              </div>
             )
             )
           }

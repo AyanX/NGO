@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+
 import Hero from "./Hero/Hero";
 import water from "../../Assets/water.webp";
 import food from "../../Assets/food.webp";
@@ -8,11 +8,10 @@ import Involve from "./Involve/Involve";
 import MissionSection from "./Mission/MissionSection";
 import Vision from "./Vision/Vision";
 
-import { useInView } from "react-intersection-observer";
 import Donation from "./Donation/Donation";
 import Causes from "./Causes/Causes";
 
-const Programs = React.lazy(() => import("./Programs/Programs"));
+import Programs from "./Programs/Programs";
 
 const heroData = [
   {
@@ -46,35 +45,19 @@ const heroData = [
 ];
 
 const Homepage = () => {
-  const [hasReachedMission, setHasReachedMission] = useState(false);
-
-  // 2. Setup the observer
-  const { ref } = useInView({
-    triggerOnce: true, // Only trigger the load once
-    rootMargin: "200px 0px", // Start loading 200px before the user reaches the section
-    onChange: (inView) => {
-      if (inView) setHasReachedMission(true);
-    },
-  });
+  
 
   return (
     <div>
       <Hero heroData={heroData} />
       <Involve />
 
-      {/* 3. Attach the ref to the trigger section */}
-      <div ref={ref}>
         <MissionSection />
-      </div>
+  
 
       <Vision />
 
-      {/* 4. Conditionally render with Suspense */}
-      {hasReachedMission && (
-        <Suspense fallback={<div className="loader">loading... </div>}>
           <Programs />
-        </Suspense>
-      )}
       <Donation/>
       <Causes/>
     </div>
