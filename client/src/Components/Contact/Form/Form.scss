@@ -1,6 +1,5 @@
 .form-header {
   text-align: center;
-  margin: 2rem 0;
 }
 
 
@@ -9,18 +8,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-color);
-  padding: 2rem 1rem;
   font-family: 'Inter', sans-serif;
+
 }
 
 .contact-form-wrapper {
-  background-color: var(--gray-bg);
+  background-color: var(---dark-text);
   border-radius: 12px;
   padding: 3rem 2.5rem;
   max-width: 600px;
   width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid var (--background-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .contact-form-title {
@@ -90,7 +89,6 @@
   outline: none;
   border-color: var(--secondary-color);
   box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
-  background-color: rgba(30, 33, 40, 0.8);
 }
 
 .form-input:hover,
@@ -131,7 +129,6 @@
 
 .submit-button:hover:not(:disabled) {
   background-color: #ea580c;
-  transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
@@ -163,7 +160,7 @@
 .status-message.error {
   background-color: rgba(239, 68, 68, 0.15);
   border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #f87171;
+  color: var(--primary-color);
 }
 
 @keyframes slideIn {

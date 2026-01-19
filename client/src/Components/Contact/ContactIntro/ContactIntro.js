@@ -68,7 +68,7 @@ const ContactIntro = () => {
               alt="Customer Care"
               className="customer-care-icon"
             />
-            We're Here to Help
+            <span style={{ color: "var(--darker-gray)" }}>We're Here to Help</span>
           </span>
 
           <h1>

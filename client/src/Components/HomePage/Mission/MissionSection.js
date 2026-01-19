@@ -73,9 +73,9 @@ const Mission = () => {
 
           <div className="stat">
               <Utensils size={28} />
-              <div>
-                <h4>15K+</h4>
-                <span>Meals Served</span>
+              <div    >
+                <h4   style={{color:"white"}} >15K+</h4>
+                <span        style={{color:"white"}} >Meals Served</span>
               </div>
             </div>
         </div>

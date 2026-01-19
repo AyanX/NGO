@@ -13,7 +13,7 @@ const programsData = [
     short:
       "Our agricultural program trains local farmers in sustainable farming techniques, provides quality seeds and tools, and connects them to markets.",
     text: "Our agricultural program trains local farmers in sustainable farming techniques, provides quality seeds and tools, and connects them to markets. We've helped over 5,000 farmers increase their yields by 40% while protecting the environment. Through cooperative formation and access to microfinance, farmers gain economic independence and food security for their families and communities.",
-    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
+    image: "https://ik.imagekit.io/nal7vhb1y/NGO/medium-shot-smiley-farmer-cornfield-1.jpg",
     badge: "Active Program",
     btnColor: "primary",
   },
@@ -23,27 +23,18 @@ const programsData = [
     short:
       "We bring free healthcare services, essential medical supplies, and professional health consultations to remote and underserved communities.",
     text: "Our medical outreach teams travel to the most remote areas to provide essential healthcare services, vaccinations, and maternal care. By partnering with local health authorities, we distribute life-saving medications and medical supplies to clinics that lack resources. We focus on preventative health education to ensure that communities can maintain long-term wellness even after our mobile units move to the next location.",
-    image: "https://ik.imagekit.io/nal7vhb1y/NGO/medium-shot-smiley-farmer-cornfield-1.jpg",
+    image: "https://ik.imagekit.io/59p9lo9mv/tinified%20(3)/medical.jpg",
     badge: "Active Program",
     btnColor: "blue",
   },
+ 
   {
     id: 3,
-    title: "Widows & Orphans",
-    short:
-      "We provide comprehensive support for vulnerable families, including quality education, safe housing, and professional vocational training.",
-    text: "Our mission for widows and orphans focuses on restoring hope and providing a path to self-sufficiency. We cover full educational scholarships for children and provide vocational training for widows to help them start small businesses. Beyond financial aid, we offer a community support system that includes counseling and mentorship, ensuring that every individual feels valued and empowered to build a stable professional future.",
-    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
-    badge: "Active Program",
-    btnColor: "orange",
-  },
-  {
-    id: 4,
     title: "Skills Training",
     short:
       "Our vocational programs are designed to equip youth and adults with high-demand skills to create sustainable livelihoods and economic growth.",
     text: "We bridge the unemployment gap by offering specialized training in technical skills, digital literacy, and entrepreneurship. Our modern training centers provide hands-on experience with the tools and technologies used in today’s job market. After graduation, we connect our students with local businesses for internships and job placement, fostering a new generation of skilled professionals who contribute to the economic development of their regions.",
-    image: "https://ik.imagekit.io/nal7vhb1y/NGO/medium-shot-smiley-farmer-cornfield-1.jpg",
+    image: "https://ik.imagekit.io/59p9lo9mv/tinified%20(3)/skills.jpg",
     badge: "Active Program",
     btnColor: "green",
   },
@@ -108,9 +99,6 @@ const ProgramsSection = () => {
                   <p>{item.text}</p>
                 </div>
                 <div className="actions">
-                  <Link to="#" className={`btn ${item.btnColor}`}>
-                    Learn More →
-                  </Link>
 
                   <button onClick={prevProgram} className="nav-btn">
                     {<ChevronLeft />}

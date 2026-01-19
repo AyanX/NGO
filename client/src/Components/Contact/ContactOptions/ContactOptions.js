@@ -9,24 +9,23 @@ const ContactOptionsComponent = () => {
   const { location, email, phone } = contacts;
   const contactOptions = [
     {
-      logo: <Locate color="var(--primary-color)" size={32} />,
+      logo: <Locate color="var(--background-color)" size={32} />,
       title: "Visit Us",
       content: location || "location",
       to: "#",
-
       IconBgColor: "var(--secondary-color)",
-      bg: "var(--dark-blue)",
+      bg: "var(--dark-to-white:)",
     },
     {
-      logo: <PhoneCall color="var(--primary-color)" size={32} />,
+      logo: <PhoneCall color="var(--background-color)" size={32} />,
       title: "Call Us",
       content: phone || "phone number",
       to: "#",
       IconBgColor: "var(--blue-color)",
-      bg: "var(--darker-gray)",
+      bg: "var(  --light-dark-bg)",
     },
     {
-      logo: <Mail color="var(--primary-color)" size={32} />,
+      logo: <Mail color="var(--background-color)" size={32} />,
       title: "Email Us",
       content: email || "email address",
       to: "#",
@@ -39,14 +38,14 @@ const ContactOptionsComponent = () => {
         >
           <button
             className="btn primary"
-            style={{ color: "var(--secondary-color)" }}
+            style={{ color: "var(--background-color)" }}
           >
             SEND MESSAGE
           </button>
         </a>
       ),
       IconBgColor: "var(--secondary-color)",
-      bg: "var(--dark-blue)",
+     bg: "var(--dark-to-white:)",
     },
   ];
   return <div>{DonationCards(contactOptions)}</div>;

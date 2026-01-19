@@ -57,7 +57,7 @@
   h1 {
     font-size: clamp(2.2rem, 4vw, 3.5rem);
     line-height: 1.1;
-    color: var(--background-color);
+    color: white;
 
     span {
       background: linear-gradient(90deg, var(--orange), #00e5ff);
@@ -110,7 +110,6 @@
   }
 }
 
-/* INFO CARDS */
 .info-card-contact {
   display: flex;
   align-items: center;
@@ -120,6 +119,7 @@
   position: relative;
 
   .info-icon {
+    color: var(--background-color);
     width: 46px;
     height: 46px;
     display: grid;

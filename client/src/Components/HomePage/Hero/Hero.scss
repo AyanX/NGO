@@ -50,18 +50,21 @@
     font-family: "Inter", sans-serif;
     letter-spacing: 2px;
     font-size: 0.8rem;
+      color: var(--background-color);
     opacity: 0.9;
   }
 
   h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     margin: 1rem 0;
+    color: var(--background-color);
   }
 
   p {
     max-width: 500px;
     line-height: 1.6;
     opacity: 0.95;
+      color: whitesmoke
   }
 }
 

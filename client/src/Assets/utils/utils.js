@@ -46,7 +46,7 @@ export const involveCards = (data, linkColor, bg = "") =>
             className="action-card__link"
           >
             {emailLink}
-            <span> {item.link && "→"}</span>
+            <span> {item.link && <span className="arrow">→</span>}</span>
           </Link>
         ) : (
           <HashLink

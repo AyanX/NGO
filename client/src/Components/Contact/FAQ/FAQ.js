@@ -110,5 +110,5 @@ function FAQSection() {
 }
 
 export default function FAQ() {
-  return <Wrapper component={<FAQSection />} bg="var(--footer-icon-bg)" />;
+  return <Wrapper component={<FAQSection />} bg="var(--faq-bg)" />;
 }

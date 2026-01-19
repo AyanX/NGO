@@ -36,6 +36,7 @@
       bottom: 1rem;
       left: 1rem;
       background: var(--blue-color);
+      color: var(--background-color);
       padding: 0.4rem 0.9rem;
       border-radius: 20px;
       font-size: 0.75rem;
@@ -66,13 +67,10 @@
        @media (max-width: 340px) {
     height: 240px !important;
   }
-
-
     }
-
     p {
       font-size: 0.95rem;
-      color: #cfd6e1;
+      color: var(--primary-color);
       margin-bottom: 1rem;
       line-height: 1.6;
     }
@@ -80,12 +78,12 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 
   &__card {
-    background: var(--text-color);
+    background: var(--black-to-white);
     border-radius: 14px;
     padding: 1.4rem;
     transition: transform 0.3s ease;
@@ -129,7 +127,7 @@
 
     p {
       font-size: 0.85rem;
-      color: #cfd6e1;
+      color: var(--primary-color);
       margin-bottom: 1rem;
       line-height: 1.5;
 
@@ -152,6 +150,7 @@
   font-size: 0.85rem;
   color: #fff;
   text-decoration: none;
+  margin: 15px 0;
 
   &.primary {
     background: var(--secondary-color);
