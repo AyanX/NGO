@@ -15,18 +15,18 @@ const containerVariants = {
 };
 
 const imageVariants = {
-  hidden: { x: -80, opacity: 0 },
+  hidden: { y: -10, opacity: 0 },
   visible: {
-    x: 0,
+    y: 0,
     opacity: 1,
     transition: { duration: 0.8, ease: "easeOut" },
   },
 };
 
 const contentVariants = {
-  hidden: { x: 80, opacity: 0 },
+  hidden: { y: -10, opacity: 0 },
   visible: {
-    x: 0,
+    y: 0,
     opacity: 1,
     transition: { duration: 0.8, ease: "easeOut" },
   },

@@ -112,6 +112,12 @@
   text-align: center;
   margin-bottom: 3rem;
   color: var(--primary-color);
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 2.5rem;
+  }
 }
 
 //involve section homepage
@@ -199,4 +205,14 @@
 
 .arrow{
   color: var(--primary-color);
+}
+.btn-send{
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+
+  span{
+    color: var(--background-color);
+  }
 }

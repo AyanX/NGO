@@ -20,6 +20,9 @@
       object-fit: cover;
       position: relative;
       z-index: 2;
+       @media (max-width: 510px){
+        width: 100%;
+       }
     }
 
     .image-accent {
@@ -31,6 +34,15 @@
       background: rgba(165, 93, 53, 0.35);
       border-radius: 1rem;
       z-index: 1;
+
+
+      @media (max-width: 510px) {
+        bottom: -15px;
+        right: -8px;
+    }
+
+
+
     }
   }
 

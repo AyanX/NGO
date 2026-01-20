@@ -29,6 +29,14 @@
     gap: 1rem;
     cursor: default;
 
+    @media (max-width: 480px) {
+      padding: 1.5rem 1rem;
+    }
+
+    @media (max-width: 320px) {
+      padding: 1rem 0.5rem;
+    }
+
     p {
       font-size: 0.95rem;
       font-weight: 500;

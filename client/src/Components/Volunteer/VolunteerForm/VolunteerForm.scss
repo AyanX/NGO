@@ -47,6 +47,11 @@ $radius: 12px;
       flex-direction: column;
       gap: 0.8rem;
 
+    
+    @media (max-width: 480px) {
+      min-width: 90%;
+    }
+
       input,
       select,
       textarea {

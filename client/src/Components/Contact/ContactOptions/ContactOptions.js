@@ -34,10 +34,10 @@ const ContactOptionsComponent = () => {
         <a
           style={{ textDecoration: "none !important" }}
           href={`mailto:${email || "email address"}`}
-          className="btn primary"
+          className="btn-send primary"
         >
           <button
-            className="btn primary"
+            className="btn-send-email primary"
             style={{ color: "var(--background-color)" }}
           >
             SEND MESSAGE
